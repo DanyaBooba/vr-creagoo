@@ -5,19 +5,15 @@
 if (!empty($_GET)) {
 	# Берем значение
 	$json_get = $_GET["json"];
-	var_dump($json_get);
+	if (!empty($json_get)) {
+		var_dump($json_get);
+		$json = json_encode($json_get);
 
-	# Открываем файл
-	$fileopen = fopen('json_data.txt', 'w');
+		# Открываем и записываем в файл
+		$fileopen = fopen('json_data.txt', 'w');
+		fwrite($fileopen, json_encode($json));
+		fclose($fileopen);
+	}
+} else {
+	echo "Json await";
 }
-
-/*
-if(isset($_GET))
-{
-	$data=$_GET;
-	print_r($_GET);
-	$fp = fopen('./data.txt', 'w');
-	fwrite($fp, json_encode($data));
-	fclose($fp); 
-}
-*/
