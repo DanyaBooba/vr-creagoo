@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WebVR part 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://web.archive.org/web/20200212061206js_/https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Main Script -->
+    <script type="text/javascript">
+    $(function() {
+      var scene = document.querySelector('a-scene');
+
+      setInterval(function(){
+        redata();
+      },700);
+
+      function redata() {
+        var data = null;
+        $.ajax({
+          url: './data.txt',
+          dataType: 'json',
+        })
+        .done(function(v) {
+          data = v;
+          if (data !== null) {
+            for(var i = 1; i<20; i++) {
+              if (data['x'+i] != undefined &&data['y'+i] != undefined &&data['z'+i]  != undefined) {
+                if ($('#'+'id'+i).length) {        
+                  $('#'+'id'+i)[0].setAttribute('animation', 'property: position; to: '+parseInt(data['x'+i], 10)+' '+parseInt(data['y'+i], 10)+' '+parseInt(data['z'+i], 10)+'');
+                } else {
+                  var entity = document.createElement('a-entity');
+                  entity.setAttribute('geometry', {primitive: 'sphere', radius: 0.5});
+                  entity.setAttribute('id', 'id'+i);
+                  entity.setAttribute('position', {
+                    x: parseInt(data['x'+i], 10), 
+                    y: parseInt(data['y'+i], 10), 
+                    z: parseInt(data['z'+i], 10)
+                  });
+                  scene.appendChild(entity);
+                }
+              }
+            }
+          }
+        });
+      }
+    });
+    </script>
+    <!-- /Main Script -->
+  </head>
+  <body>
+    <a-scene>
+      
+      <!-- Camera -->
+      <a-entity id="rig" position="0 45 0" rotation="0 0 0">
+        <a-camera id="camera"></a-camera>   
+      </a-entity>
+      <!-- /Camera -->
+
+      <a-sky src="/sky.jpg" rotation="0 -130 0"></a-sky>
+    </a-scene>
+
+  </body>
+</html>
