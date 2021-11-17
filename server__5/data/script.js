@@ -3,17 +3,22 @@
 let interval = 200;
 let loopLength = 5;
 
-let jsonFile = 'json_data.txt';
+let countObjects = 19;
+
+let jsonFile = 'data/data_file.txt';
 let idName = 'text';
 
 $(function() {
     var scene = document.querySelector('a-scene');
     //DrawAxis();
+    SetID();
 
+    /*
     setInterval(function() {
         ReData();
     }, interval);
-
+    */
+   
     function ReData() {
       var data = null;
       $.ajax({
@@ -44,6 +49,17 @@ $(function() {
 
     }
 
+    function SetID(){
+      for (var i = 1; i < countObjects; i++) {
+        if ($('#' + idName + i).length) {
+
+          $('#' + idName + i)[0].setAttribute('text', {
+            value: '[' + i + ']',
+          });
+        }
+      }
+    }
+
     function CreateElement(id, x, y, z) {
       var textA = document.createElement('a-text');
       textA.setAttribute('text', {
@@ -57,100 +73,6 @@ $(function() {
       });
       textA.setAttribute('id', 'idt' + id);
       scene.appendChild(textA);
-    }
-
-
-
-    function DrawAxis() {
-      for (var i = 0; i < 100; i++) {
-        var boxEl = document.createElement('a-sphere');
-        boxEl.setAttribute('material', {
-          color: 'red'
-        });
-        boxEl.setAttribute('position', {
-          x: 0,
-          y: 0,
-          z: i
-        });
-        boxEl.setAttribute('scale', {
-          x: 0.05,
-          y: 0.05,
-          z: 0.15
-        });
-        scene.appendChild(boxEl);
-
-        var textA = document.createElement('a-text');
-        textA.setAttribute('text', {
-          value: 'z=' + i,
-          color: 'black'
-        });
-        textA.setAttribute('position', {
-          x: 0,
-          y: 0,
-          z: i
-        });
-        scene.appendChild(textA);
-
-
-
-        var boxEl = document.createElement('a-sphere');
-        boxEl.setAttribute('material', {
-          color: 'red'
-        });
-        boxEl.setAttribute('position', {
-          x: i,
-          y: 0,
-          z: 0
-        });
-        boxEl.setAttribute('scale', {
-          x: 0.05,
-          y: 0.05,
-          z: 0.05
-        });
-        scene.appendChild(boxEl);
-
-        var textA = document.createElement('a-text');
-        textA.setAttribute('text', {
-          value: 'x=' + i,
-          color: 'black'
-        });
-        textA.setAttribute('position', {
-          x: i,
-          y: 0,
-          z: 0
-        });
-        scene.appendChild(textA);
-
-
-
-        var boxEl = document.createElement('a-sphere');
-        boxEl.setAttribute('material', {
-          color: 'red'
-        });
-        boxEl.setAttribute('position', {
-          x: 0,
-          y: i,
-          z: 0
-        });
-        boxEl.setAttribute('scale', {
-          x: 0.05,
-          y: 0.05,
-          z: 0.05
-        });
-        scene.appendChild(boxEl);
-
-        var textA = document.createElement('a-text');
-        textA.setAttribute('text', {
-          value: 'y=' + i,
-          color: 'black'
-        });
-        textA.setAttribute('position', {
-          x: 0,
-          y: i,
-          z: 0
-        });
-        scene.appendChild(textA);
-      }
     }
 
   });

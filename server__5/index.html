@@ -14,7 +14,12 @@
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras/dist/aframe-extras.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
-    <script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="data/script.js"></script>
+
+    <!--
+
+        <script>
         AFRAME.registerShader('my-custom', {
           schema: {
             color: {type: 'color', is: 'uniform', default: 'red'},
@@ -22,10 +27,12 @@
           }
         });
     </script>
+
+    -->
 </head>
 
 <body>
-    <a-scene room-manager="nav: true; startPos: 0 0 -40">
+    <a-scene>
 
         <!-- Models -->
 
@@ -121,20 +128,19 @@
                 <a-entity text="value: Text UI; color: #000000; align: center;" id="text7" scale="7 7 1" position="32.6 3 53.5" rotation="0 180 0"></a-entity>
                 <a-entity text="value: Text UI; color: #000000; align: center;" id="text8" scale="7 7 1" position="40 3 53.5" rotation="0 180 0"></a-entity>
 
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text9" scale="7 7 1" position="-31.5 3 38" rotation="0 0 0"></a-entity>
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text10" scale="7 7 1" position="20.6 3 39.1" rotation="0 0 0"></a-entity>
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text11" scale="7 7 1" position="25 3 39.1" rotation="0 0 0"></a-entity>
+                <a-entity text="value: Text UI; color: #000000; align: center;" id="text9" scale="7 7 1" position="20.6 3 39.1" rotation="0 0 0"></a-entity>
+                <a-entity text="value: Text UI; color: #000000; align: center;" id="text10" scale="7 7 1" position="25 3 39.1" rotation="0 0 0"></a-entity>
 
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text12" scale="7 7 1" position="-17.5 3 51.2" rotation="0 180 0"></a-entity>
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text13" scale="7 7 1" position="-29.5 3 51.2" rotation="0 180 0"></a-entity>
+                <a-entity text="value: Text UI; color: #000000; align: center;" id="text11" scale="7 7 1" position="-17.5 3 51.2" rotation="0 180 0"></a-entity>
+                <a-entity text="value: Text UI; color: #000000; align: center;" id="text12" scale="7 7 1" position="-29.5 3 51.2" rotation="0 180 0"></a-entity>
 
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text14" scale="7 7 1" position="-31.5 3 38" rotation="0 0 0"></a-entity>
+                <a-entity text="value: Text UI; color: #000000; align: center;" id="text13" scale="7 7 1" position="-31.5 3 38" rotation="0 0 0"></a-entity>
 
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text15" scale="7 7 1" position="-40.5 3 39.5" rotation="0 90 0"></a-entity>
+                <a-entity text="value: Text UI; color: #000000; align: center;" id="text14" scale="7 7 1" position="-40.5 3 39.5" rotation="0 90 0"></a-entity>
 
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text16" scale="7 7 1" position="-74 3 39.5" rotation="0 90 0"></a-entity>
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text17" scale="7 7 1" position="-74 3 50" rotation="0 90 0"></a-entity>
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text18" scale="7 7 1" position="-74 3 61.1" rotation="0 90 0"></a-entity>
+                <a-entity text="value: Text UI; color: #000000; align: center;" id="text15" scale="7 7 1" position="-74 3 39.5" rotation="0 90 0"></a-entity>
+                <a-entity text="value: Text UI; color: #000000; align: center;" id="text16" scale="7 7 1" position="-74 3 50" rotation="0 90 0"></a-entity>
+                <a-entity text="value: Text UI; color: #000000; align: center;" id="text17" scale="7 7 1" position="-74 3 61.1" rotation="0 90 0"></a-entity>
 
             <!-- Text -->
 
