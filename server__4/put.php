@@ -19,8 +19,7 @@ if (!empty($_GET)) {
 	echo "Json await<br>";
 }
 
-$count = 20;
-
+$count = 5;
 $url = '{"x1": 1, "y1": 1, "z1": 1';
 for ($i = 2; $i < $count; $i++) {
 	$url .= ', "x' . $i . '": 1';

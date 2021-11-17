@@ -1,11 +1,14 @@
 // Основной файл
 
-let interval = 700;
+let interval = 200;
+let loopLength = 5;
+
 let jsonFile = 'json_data.txt';
+let idName = 'text';
 
 $(function() {
     var scene = document.querySelector('a-scene');
-    DrawAxis();
+    //DrawAxis();
 
     setInterval(function() {
         ReData();
@@ -23,29 +26,16 @@ $(function() {
           console.log('File is empty');
         }
         else if(data !== null){
-            for (var i = 1; i < 20; i++) {
+            for (var i = 1; i < loopLength; i++) {
                 if (data['x' + i] != undefined && data['y' + i] != undefined && data['z' + i] != undefined) {
-                  if ($('#' + 'id' + i).length) {
-                    //$('#' + 'id' + i)[0].setAttribute('animation', 'property: position; to: ' + parseInt(data['x' + i], 10) + ' ' + parseInt(data['y' + i], 10) + ' ' + parseInt(data['z' + i], 10) + '');
-                    $('#' + 'id' + i)[0].setAttribute('text', {
-                      value: 'id=' + i + ' (' + parseInt(data['x' + i], 10) + ',' + parseInt(data['y' + i], 10) + ',' + parseInt(data['z' + i], 10) + ')',
-                      color: 'red'
+                  if ($('#' + idName + i).length) {
+
+                    let x = parseInt(data['x' + i], 10);
+                    let y = parseInt(data['y' + i], 10);
+                    let z = parseInt(data['z' + i], 10);
+                    $('#' + idName + i)[0].setAttribute('text', {
+                      value: '[' + i + '] (' + x + ', ' + y + ', ' + z + ')',
                     });
-    
-                    PlotData(i, parseInt(data['x' + i], 10), parseInt(data['y' + i], 10), parseInt(data['z' + i], 10));
-                  } else {
-                    var entity = document.createElement('a-entity');
-                    entity.setAttribute('text', {
-                      value: 'id=' + i + ' (' + parseInt(data['x' + i], 10) + ',' + parseInt(data['y' + i], 10) + ',' + parseInt(data['z' + i], 10) + ')',
-                      color: 'black'
-                    });
-                    entity.setAttribute('id', 'id' + i);
-                    entity.setAttribute('position', {
-                      x: parseInt(data['x' + i], 10),
-                      y: parseInt(data['y' + i], 10),
-                      z: parseInt(data['z' + i], 10)
-                    });
-                    scene.appendChild(entity);
                   }
                 }
               }
@@ -53,6 +43,23 @@ $(function() {
       });
 
     }
+
+    function CreateElement(id, x, y, z) {
+      var textA = document.createElement('a-text');
+      textA.setAttribute('text', {
+        value: 'id=' + id + ' (' + x + ',' + y + ',' + z + ')',
+        color: 'black'
+      });
+      textA.setAttribute('position', {
+        x: 3,
+        y: 3 - id,
+        z: 75
+      });
+      textA.setAttribute('id', 'idt' + id);
+      scene.appendChild(textA);
+    }
+
+
 
     function DrawAxis() {
       for (var i = 0; i < 100; i++) {
@@ -145,23 +152,5 @@ $(function() {
         scene.appendChild(textA);
       }
     }
-
-    function PlotData(id, x, y, z) {
-      var textA = document.createElement('a-text');
-      textA.setAttribute('text', {
-        value: 'id=' + id + ' (' + x + ',' + y + ',' + z + ')',
-        color: 'black'
-      });
-      textA.setAttribute('position', {
-        x: 3,
-        y: 3 - id,
-        z: 75
-      });
-      textA.setAttribute('id', 'idt' + id);
-      scene.appendChild(textA);
-    }
-
-
-    
 
   });
