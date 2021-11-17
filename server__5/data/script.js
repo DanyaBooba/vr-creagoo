@@ -3,7 +3,7 @@
 let interval = 200;
 let loopLength = 5;
 
-let countObjects = 19;
+let countObjects = 18;
 
 let jsonFile = 'data/data_file.txt';
 let idName = 'text';
