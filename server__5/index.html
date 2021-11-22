@@ -18,23 +18,14 @@
 
     <script src="/js/jquery.min.js"></script>
     <script src="data/script.js"></script>
-
-    <!--
-
-        <script>
-        AFRAME.registerShader('my-custom', {
-          schema: {
-            color: {type: 'color', is: 'uniform', default: 'red'},
-            opacity: {type: 'number', is: 'uniform', default: 1.0}
-          }
-        });
-    </script>
-
-    -->
 </head>
 
 <body>
     <a-scene>
+
+        <a-assets>
+            <material id="material-plane" color="#E7E7E7" opacity="0.4">
+        </a-assets>
 
         <!-- Models -->
 
@@ -91,55 +82,53 @@
             <!-- Text -->
 
                 <!-- Planes -->
+                <a-plane id="Плейн 1" material="color: #696969; opacity: 0.4;" position="-4 2 36.5" rotation="0 0 0" scale="1.5 2.5 1"></a-plane>
+                <a-plane id="Плейн 2" material="color: #696969; opacity: 0.4;" position="-12 2 36.5" rotation="0 0 0" scale="1.5 2.5 1" ></a-plane>
+                <a-plane id="Плейн 3" material="color: #696969; opacity: 0.4;" position="-19.3 2 36.5" rotation="0 0 0" scale="1.5 2.5 1"></a-plane>
 
-                <!-- material="shader: my-custom; color: white; opacity: 0.2; transparent: true;" -->
-                <a-entity id="Плейн 1" position="-4 2 36.5" rotation="90 0 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
-                <a-entity id="Плейн 2" position="-12 2 36.5" rotation="90 0 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
-                <a-entity id="Плейн 3" position="-19.3 2 36.5" rotation="90 0 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
+                <a-plane id="Плейн 4" material="color: #696969; opacity: 0.4;" position="-1.6 2 55.2" rotation="0 180 0" scale="1.5 2.5 1"></a-plane>
+                <a-plane id="Плейн 5" material="color: #696969; opacity: 0.4;" position="4.6 2 55.2" rotation="0 180 0" scale="1.5 2.5 1"></a-plane>
+                <a-plane id="Плейн 6" material="color: #696969; opacity: 0.4;" position="12.2 2 55.2" rotation="0 180 0" scale="1.5 2.5 1"></a-plane>
 
-                <a-entity id="Плейн 4" position="12.2 2 55.2" rotation="90 0 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
-                <a-entity id="Плейн 5" position="4.6 2 55.2" rotation="90 0 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
-                <a-entity id="Плейн 6" position="-1.6 2 55.2" rotation="90 0 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
+                <a-plane id="Плейн 7" material="color: #696969; opacity: 0.4;" position="32.6 2 53.6" rotation="0 180 0" scale="1.5 2.5 1"></a-plane>
+                <a-plane id="Плейн 8" material="color: #696969; opacity: 0.4;" position="40 2 53.6" rotation="0 180 0" scale="1.5 2.5 1"></a-plane>
 
-                <a-entity id="Плейн 7" position="20.7 2 39" rotation="90 0 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
-                <a-entity id="Плейн 8" position="25 2 39" rotation="90 0 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
-                
-                <a-entity id="Плейн 9" position="32.6 2 53.6" rotation="90 0 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
-                <a-entity id="Плейн 10" position="40 2 53.6" rotation="90 0 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
+                <a-plane id="Плейн 9" material="color: #696969; opacity: 0.4;" position="20.7 2 39" rotation="0 0 0" scale="1.5 2.5 1"></a-plane>
+                <a-plane id="Плейн 10" material="color: #696969; opacity: 0.4;" position="25 2 39" rotation="0 0 0" scale="1.5 2.5 1"></a-plane>
 
-                <a-entity id="Плейн 11" position="-17.5 2 51.3" rotation="90 0 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
-                <a-entity id="Плейн 12" position="-29.5 2 51.3" rotation="90 0 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
+                <a-plane id="Плейн 11" material="color: #696969; opacity: 0.4;" position="-17.5 2 51.3" rotation="0 180 0" scale="1.5 2.5 1"></a-plane>
+                <a-plane id="Плейн 12" material="color: #696969; opacity: 0.4;" position="-29.5 2 51.3" rotation="0 180 0" scale="1.5 2.5 1"></a-plane>
 
-                <a-entity id="Плейн 13" position="-40.7 2 39.5" rotation="90 90 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
+                <a-plane id="Плейн 13" material="color: #696969; opacity: 0.4;" position="-40.7 2 39.5" rotation="0 90 0" scale="1.5 2.5 1"></a-plane>
 
-                <a-entity id="Плейн 14" position="-74.2 2 39.5" rotation="90 90 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
-                <a-entity id="Плейн 15" position="-74.2 2 50" rotation="90 90 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
-                <a-entity id="Плейн 16" position="-74.2 2 61.2" rotation="90 90 0" scale="0.7 1 1.2" gltf-model="models__1/plane.glb" depth-correction></a-entity>
+                <a-plane id="Плейн 14" material="color: #696969; opacity: 0.4;" position="-74.2 2 39.5" rotation="0 90 0" scale="1.5 2.5 1"></a-plane>
+                <a-plane id="Плейн 15" material="color: #696969; opacity: 0.4;" position="-74.2 2 50" rotation="0 90 0" scale="1.5 2.5 1"></a-plane>
+                <a-plane id="Плейн 16" material="color: #696969; opacity: 0.4;" position="-74.2 2 61.2" rotation="0 90 0" scale="1.5 2.5 1"></a-plane>
 
                 <!-- /Planes -->
 
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text1" scale="7 7 1" position="-4 3 36.5" rotation="0 0 0"></a-entity>
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text2" scale="7 7 1" position="-12 3 36.5" rotation="0 0 0"></a-entity>
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text3" scale="7 7 1" position="-19.4 3 36.5" rotation="0 0 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text1" scale="7 7 1" position="-4 3 36.5" rotation="0 0 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text2" scale="7 7 1" position="-12 3 36.5" rotation="0 0 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text3" scale="7 7 1" position="-19.4 3 36.5" rotation="0 0 0"></a-entity>
 
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text4" scale="7 7 1" position="-1.5 3 55.1" rotation="0 180 0"></a-entity>
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text5" scale="7 7 1" position="4.6 3 55.1" rotation="0 180 0"></a-entity>
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text6" scale="7 7 1" position="12.2 3 55.1" rotation="0 180 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text4" scale="7 7 1" position="-1.5 3 55.1" rotation="0 180 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text5" scale="7 7 1" position="4.6 3 55.1" rotation="0 180 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text6" scale="7 7 1" position="12.2 3 55.1" rotation="0 180 0"></a-entity>
 
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text7" scale="7 7 1" position="32.6 3 53.5" rotation="0 180 0"></a-entity>
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text8" scale="7 7 1" position="40 3 53.5" rotation="0 180 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text7" scale="7 7 1" position="32.6 3 53.5" rotation="0 180 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text8" scale="7 7 1" position="40 3 53.5" rotation="0 180 0"></a-entity>
 
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text9" scale="7 7 1" position="20.6 3 39.1" rotation="0 0 0"></a-entity>
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text10" scale="7 7 1" position="25 3 39.1" rotation="0 0 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text9" scale="7 7 1" position="20.6 3 39.1" rotation="0 0 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text10" scale="7 7 1" position="25 3 39.1" rotation="0 0 0"></a-entity>
 
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text11" scale="7 7 1" position="-17.5 3 51.2" rotation="0 180 0"></a-entity>
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text12" scale="7 7 1" position="-29.5 3 51.2" rotation="0 180 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text11" scale="7 7 1" position="-17.5 3 51.2" rotation="0 180 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text12" scale="7 7 1" position="-29.5 3 51.2" rotation="0 180 0"></a-entity>
 
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text13" scale="7 7 1" position="-40.5 3 39.5" rotation="0 90 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text13" scale="7 7 1" position="-40.5 3 39.5" rotation="0 90 0"></a-entity>
 
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text14" scale="7 7 1" position="-74 3 39.5" rotation="0 90 0"></a-entity>
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text15" scale="7 7 1" position="-74 3 50" rotation="0 90 0"></a-entity>
-                <a-entity text="value: Text UI; color: #000000; align: center;" id="text16" scale="7 7 1" position="-74 3 61.1" rotation="0 90 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text14" scale="7 7 1" position="-74 3 39.5" rotation="0 90 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text15" scale="7 7 1" position="-74 3 50" rotation="0 90 0"></a-entity>
+                <a-entity text="value: Text UI; color: #ffffff; align: center;" id="text16" scale="7 7 1" position="-74 3 61.1" rotation="0 90 0"></a-entity>
 
             <!-- Text -->
 

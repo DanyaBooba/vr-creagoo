@@ -16,12 +16,13 @@
   <a-scene>
 
     <a-assets>
-      <video id="my-video" src="video.mp4" autoplay="true">
+      <video id="my-video" src="video.mp4" autoplay="true"></video>
     </a-assets>
 
     <a-plane position="-6 0 0" width="4" height="4" color="#7BC8A4" material="color: #696969; roughness: 1; metalness: 0; opacity: 0.4;"></a-plane>
     <a-plane position="0 0 0" width="4" height="4" material="src: test.png; "></a-plane>
     <a-plane position="6 0 0" width="4" height="4" material="src: #my-video"></a-plane>
+    <a-entity position="12 0 0" gltf-model="glass.glb" depth-correction></a-entity>
 
 
 
