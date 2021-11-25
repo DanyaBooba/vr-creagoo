@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>WebSocket demo</title>
+    </head>
+    <body>
+        <script>
+            var ws = new WebSocket("ws://127.0.0.1:5678/"),
+                messages = document.createElement('ul');
+            ws.onmessage = function (event) {
+                   console.log(event.data);
+                   document.getElementById("val").innerHTML = event.data
+            };
+            </script>
+    <div id="val"></div>
+    </body>
+</html>
