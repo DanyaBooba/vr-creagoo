@@ -1,6 +1,6 @@
 <?php
 
-$path = "data_file.txt";
+$path = "json_data.txt";
 $json = file_get_contents($path);
 $parsejson = json_decode($json, true);
 ?>
