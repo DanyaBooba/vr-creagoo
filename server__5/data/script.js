@@ -15,11 +15,9 @@ $(function() {
     SetID();
     ReData();
     
-/*
     setInterval(function() {
-        ReData();
-    }, interval);
-    */
+      ReData();
+  }, interval);
     
    
     function ReData() {
@@ -91,31 +89,45 @@ $(function() {
               console.log('[' + i + '] ' + main_array[i]["ID"] + ' ' + ReplacementOfKeys(main_array[i]["ID"]));
             }
 
-            var test = minienergy__1["ID"];
-            //12 - МП 1
-            if ($('#' + idName + '12').length) {
-              $('#' + idName + '12')[0].setAttribute('text', {
-                value: '[' + ReplacementOfKeys(test) + ']',
-              });
+            for(var i = 0; i < main_array.length; i++){
+              var item = main_array[i];
+              console.log('[' + i + '] ' + item["ID"] + ' ' + ReplacementOfKeys(item["ID"]));
+
+              if($('#' + idName + i + '_id').length){
+                $('#' + idName + i + '_id')[0].setAttribute('text', {
+                  value: '[' + ReplacementOfKeys(item["ID"]) + ']',
+                });
+              }
+
+              if($('#' + idName + i + '_ison').length){
+                $('#' + idName + i + '_ison')[0].setAttribute('text', {
+                  value: '[' + item["IsON"] + ']',
+                });
+              }
+
+              if($('#' + idName + i + '_genpow').length){
+                $('#' + idName + i + '_genpow')[0].setAttribute('text', {
+                  value: '[' + Math.round(item["GeneratedPower"]) + ']',
+                });
+              }
+
+              if($('#' + idName + i + '_power').length){
+                $('#' + idName + i + '_power')[0].setAttribute('text', {
+                  value: '[' + item["Power"] + ']',
+                });
+              }
+
+              if($('#' + idName + i + '_reqpower').length){
+                $('#' + idName + i + '_reqpower')[0].setAttribute('text', {
+                  value: '[' + item["RequiredPower"] + ']',
+                });
+              }
+
+
+
+
             }
 
-            
-
-            /*
-            for (var i = 1; i < loopLength; i++) {
-                if (data['x' + i] != undefined && data['y' + i] != undefined && data['z' + i] != undefined) {
-                  if ($('#' + idName + i).length) {
-
-                    let x = parseInt(data['x' + i], 10);
-                    let y = parseInt(data['y' + i], 10);
-                    let z = parseInt(data['z' + i], 10);
-                    $('#' + idName + i)[0].setAttribute('text', {
-                      value: '[' + i + '] (' + x + ', ' + y + ', ' + z + ')',
-                    });
-                  }
-                }
-              }
-              */
 
 
         }
@@ -142,37 +154,37 @@ $(function() {
       }
 
       if(key === "Микро район №1"){
-        return "Mikro rayon №1";
+        return "Live N1";
       }
       else if(key === "Микро район №2"){
-        return "Mikro rayon №2";
+        return "Live N2";
       }
       else if(key === "Микро район №3"){
-        return "Mikro rayon №3";
+        return "Live N3";
       }
       else if(key === "Микро район №4"){
-        return "Mikro rayon №4";
+        return "Live N4";
       }
       else if(key === "Микро район №5"){
-        return "Mikro rayon №5";
+        return "Live N5";
       }
       else if(key === "Микро район №6"){
-        return "Mikro rayon №6";
+        return "Live N6";
       }
       else if(key === "Больница №1"){
-        return "Bol'nitsa №1";
+        return "Hosp N1";
       }
       else if(key === "Больница №2"){
-        return "Bol'nitsa №2";
+        return "Hosp N2";
       }
       else if(key === "ВГ1"){
         return "VG1";
       }
       else if(key === "Завод №1"){
-        return "Zavod №1";
+        return "Fact N1";
       }
       else if(key === "Завод №2"){
-        return "Zavod №2";
+        return "Fact N2";
       }
       else if(key === "СБ1"){
         return "SB1";
