@@ -67,6 +67,7 @@ $(function() {
 
             var windgen = objects__2[2];
 
+
             // Формируем массив
             main_array.push(home__1);
             main_array.push(home__2);
@@ -83,15 +84,11 @@ $(function() {
             main_array.push("energo");
             //console.log(main_array[1]);
             
-
-            console.log("Обьекты: ");
-            for(var i = 0; i < main_array.length; i++){
-              console.log('[' + i + '] ' + main_array[i]["ID"] + ' ' + ReplacementOfKeys(main_array[i]["ID"]));
-            }
-
+            
             for(var i = 0; i < main_array.length; i++){
               var item = main_array[i];
               console.log('[' + i + '] ' + item["ID"] + ' ' + ReplacementOfKeys(item["ID"]));
+
 
               if($('#' + idName + i + '_id').length){
                 $('#' + idName + i + '_id')[0].setAttribute('text', {
@@ -125,10 +122,7 @@ $(function() {
 
 
 
-
             }
-
-
 
         }
       });
