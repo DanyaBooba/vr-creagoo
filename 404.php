@@ -1,2 +1,2 @@
 <?php
-header("Location: /?q=1");
+header("Location: /?q=0");
