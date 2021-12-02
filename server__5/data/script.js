@@ -15,9 +15,9 @@ $(function() {
     SetID();
     ReData();
     
-    setInterval(function() {
+    /*setInterval(function() {
       ReData();
-  }, interval);
+  }, interval);*/
     
    
     function ReData() {
@@ -30,6 +30,7 @@ $(function() {
         data = mainFile;
         if (data === null) {
           console.log('File is empty');
+
         }
         else if(data !== null){
 
@@ -39,12 +40,17 @@ $(function() {
             var objects__1 = root["Lines"];
             var objects__2 = root["Stations"];
 
-            console.log(data);
-            console.log(root);
-
             // Формируем Обьекты
 
-            //energy
+            const energo_array = {
+              GeneratedPower: root.GeneratedPower,
+              ID: "Подстанция",
+              IsON: true,
+              RequiredPower: root.RequiredPower,
+              SocketNum: -1
+            };
+
+            var energo = energo_array;
 
             var home__1 = objects__1[0].Childs[0].Childs[1].Childs[0];
             var home__2 = objects__1[0].Childs[0].Childs[1].Childs[1];
@@ -53,7 +59,7 @@ $(function() {
             var home__5 = objects__1[1]["Childs"][5];
             var home__6 = objects__1[1]["Childs"][6];
 
-            //hospital__2
+            var hospital__1 = objects__1[2].Childs[0].Childs[1].Childs[0];
             var hospital__2 = objects__1[1]["Childs"][0];
 
             var factory__1 = objects__1[1]["Childs"][1];
@@ -69,8 +75,8 @@ $(function() {
 
 
             // Формируем массив
-            main_array.push(home__1);
-            main_array.push(home__2);
+            main_array.push(home__1); //1 
+            main_array.push(home__2); 
             main_array.push(home__3);
             main_array.push(home__4);
             main_array.push(home__5);
@@ -81,13 +87,16 @@ $(function() {
             main_array.push(lightpanel__1);
             main_array.push(factory__2);
             main_array.push(lightpanel__2);
-            main_array.push("energo");
-            //console.log(main_array[1]);
-            
-            
+            main_array.push(energo); //13
+            main_array.push(minienergy__1);
+            main_array.push(minienergy__2);
+            main_array.push(hospital__1);
+
+            console.log(hospital__1);
+
             for(var i = 0; i < main_array.length; i++){
               var item = main_array[i];
-              console.log('[' + i + '] ' + item["ID"] + ' ' + ReplacementOfKeys(item["ID"]));
+              //console.log('[' + i + '] ' + item["ID"] + ' ' + ReplacementOfKeys(item["ID"]));
 
 
               if($('#' + idName + i + '_id').length){
@@ -97,29 +106,43 @@ $(function() {
               }
 
               if($('#' + idName + i + '_ison').length){
+                
+                bool = item["IsON"];
+
                 $('#' + idName + i + '_ison')[0].setAttribute('text', {
-                  value: '[' + item["IsON"] + ']',
+                  value: '[' + ReplacementIsOn(item["IsON"]) + ']',
                 });
+
+                if(bool === true){
+                  $('#' + idName + i + '_ison')[0].setAttribute('text', {
+                    color: '#2BFF3B',
+                  });
+                }
+                else if(bool === false){
+                  $('#' + idName + i + '_ison')[0].setAttribute('text', {
+                    color: '#FF2B2B',
+                  });
+                }
+
               }
 
               if($('#' + idName + i + '_genpow').length){
                 $('#' + idName + i + '_genpow')[0].setAttribute('text', {
-                  value: '[' + Math.round(item["GeneratedPower"]) + ']',
+                  value: Math.round(item["GeneratedPower"]) + ' kWt',
                 });
               }
 
               if($('#' + idName + i + '_power').length){
                 $('#' + idName + i + '_power')[0].setAttribute('text', {
-                  value: '[' + item["Power"] + ']',
+                  value: Math.round(item["Power"]) + ' kWt',
                 });
               }
 
               if($('#' + idName + i + '_reqpower').length){
                 $('#' + idName + i + '_reqpower')[0].setAttribute('text', {
-                  value: '[' + item["RequiredPower"] + ']',
+                  value: Math.round(item["RequiredPower"]) + ' kWt',
                 });
               }
-
 
 
             }
@@ -186,10 +209,36 @@ $(function() {
       else if(key === "СБ2"){
         return "SB2";
       }
+      else if(key === "Подстанция"){
+        return "Podstantsiya";
+      }
+      else if(key === "МП1"){
+        return "MP 1";
+      }
+      else if(key === "МП2"){
+        return "MP 2";
+      }
       else{
         return key;
       }
 
+    }
+
+    function ReplacementIsOn(value){
+
+      if(value === null){
+        return ReplacementIsOn(false);
+      }
+
+      if(value === false){
+        return "OFF";
+      }
+      else if(value === true){
+        return "ON";
+      }
+      else{
+        return ReplacementIsOn(false);
+      }
     }
 
 
