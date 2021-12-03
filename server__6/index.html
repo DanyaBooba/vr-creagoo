@@ -20,11 +20,35 @@
 <body>
     <a-scene room-manager="nav: true; startPos: 0 0 -40" fog="type: linear; color: #aaa">
 
+        
+
         <!-- Models -->
 
-            <a-entity id="Дорога" position="0 -2 0" gltf-model="models__1/allold.glb" material="shader: ocean;"></a-entity>
+            <a-entity id="Стенд" position="0 -2 0" gltf-model="models__1/stand.glb"></a-entity>
+
+            <a-entity id="Винт Ветрогенератора 1" position="-52.95 16.88 24.95"
+            gltf-model="models__1/windTurbinePropeller.glb"animation="property: rotation; to: -360 0 0; loop: true; dur: 3000; easing: linear;"></a-entity>
+
+            <a-entity id="Винт Ветрогенератора 2" position="-52.95 16.88 0" rotation="-90 0 0"
+            gltf-model="models__1/windTurbinePropeller.glb" animation="property: rotation; to: -450 0 0; loop: true; dur: 3000; easing: linear;"></a-entity>
+
+            <a-entity id="Винт Ветрогенератора 3" position="-52.95 16.88 -25" rotation="-180 0 0"
+            gltf-model="models__1/windTurbinePropeller.glb" animation="property: rotation; to: -540 0 0; loop: true; dur: 3000; easing: linear;"></a-entity>
+
+            <a-entity id="Винт Мини Ветрогенератора" position="77.77 4.55 16.47"
+            gltf-model="models__1/windMiniTurbinePropeller.glb" animation="property: rotation; to: 0 -360 0; loop: true; dur: 1000; easing: linear;"></a-entity>
+
             
         <!-- /Models -->
+
+        
+        <!-- Planes -->
+        <a-plane id="Плейн Подстанция [1]" material="color: #696969; opacity: 0.4;" position="-27.98 0.48 -6.15" rotation="0 90 0" scale="2.5 3 1"></a-plane>
+
+
+
+        <!-- /Planes -->
+        
 
         <a-sky src="/sky.jpg" rotation="0 -130 0"></a-sky>
 
