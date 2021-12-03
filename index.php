@@ -1,3 +1,3 @@
 <?php
-if (empty($_GET["q"])) header("Location: /?q=1");
+if (!isset($_GET["q"])) header("Location: /?q=0");
 else header("Location: /server__" . $_GET["q"] . "/");
