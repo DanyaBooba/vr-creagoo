@@ -40,6 +40,7 @@ $(function() {
             var objects__2 = root["Stations"];
 
             // Формируем Обьекты
+            
 
             const substation = {
               GeneratedPower: root.GeneratedPower,
@@ -51,136 +52,150 @@ $(function() {
 
             //objects__2[0]
             const solarBattery1 = {
-              GeneratedPower: root.GeneratedPower,
+              GeneratedPower: objects__2[0].GeneratedPower,
               ID: "Солнечная Батарея 1",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
+              IsON: objects__2[0].IsON,
+              Power: objects__2[0].Power,
+              RequiredPower: objects__2[0].RequiredPower,
               SocketNum: -1
             };
 
             //objects__1[2].Childs[0]
             const miniSubstation1 = {
-              GeneratedPower: root.GeneratedPower,
+              GeneratedPower: objects__1[2].Childs[0].GeneratedPower,
               ID: "Мини Подстанция 1",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
+              IsON: objects__1[2].Childs[0].IsON,
+              RequiredPower: objects__1[2].Childs[0].RequiredPower,
               SocketNum: -1
             };
 
             //objects__1[0].Childs[0]
             const miniSubstation2 = {
-              GeneratedPower: root.GeneratedPower,
+              GeneratedPower: objects__1[0].Childs[0].GeneratedPower,
               ID: "Мини Подстанция 2",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
+              IsON: objects__1[0].Childs[0].IsON,
+              Power: objects__2[0].Power,
+              RequiredPower: objects__1[0].Childs[0].RequiredPower,
               SocketNum: -1
             };
 
             //objects__1[1]["Childs"][0]
             const hospital2 = {
-              GeneratedPower: root.GeneratedPower,
+              GeneratedPower: objects__1[1]["Childs"][0].GeneratedPower,
               ID: "Больница 2",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
+              IsON: objects__1[1]["Childs"][0].IsON,
+              Power: objects__2[0].Power,
+              RequiredPower: objects__1[1]["Childs"][0].RequiredPower,
               SocketNum: -1
             };
 
             //objects__1[1]["Childs"][2]
             const factory2 = {
-              GeneratedPower: root.GeneratedPower,
+              GeneratedPower: objects__1[1]["Childs"][2].GeneratedPower,
               ID: "Завод 2",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
+              IsON: objects__1[1]["Childs"][2].IsON,
+              Power: objects__2[0].Power,
+              RequiredPower: objects__1[1]["Childs"][2].RequiredPower,
               SocketNum: -1
             };
 
             //objects__1[0].Childs[0].Childs[1].Childs[0]
             const house1 = {
-              GeneratedPower: root.GeneratedPower,
+              GeneratedPower: objects__1[0].Childs[0].Childs[1].Childs[0].GeneratedPower,
               ID: "Микрорайон 1",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
+              IsON: objects__1[0].Childs[0].Childs[1].Childs[0].IsON,
+              Power: objects__2[0].Power,
+              RequiredPower: objects__1[0].Childs[0].Childs[1].Childs[0].RequiredPower,
               SocketNum: -1
             };
 
             //objects__1[0].Childs[0].Childs[1].Childs[1]
             const house2 = {
-              GeneratedPower: root.GeneratedPower,
+              GeneratedPower: objects__1[0].Childs[0].Childs[1].Childs[1].GeneratedPower,
               ID: "Микрорайон 2",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
+              IsON: objects__1[0].Childs[0].Childs[1].Childs[1].IsON,
+              Power: objects__2[0].Power,
+              RequiredPower: objects__1[0].Childs[0].Childs[1].Childs[1].RequiredPower,
               SocketNum: -1
             };
 
             //objects__1[1]["Childs"][3]
             const house3 = {
-              GeneratedPower: root.GeneratedPower,
+              GeneratedPower: objects__1[1]["Childs"][3].GeneratedPower,
               ID: "Микрорайон 3",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
+              IsON: objects__1[1]["Childs"][3].IsON,
+              Power: objects__2[0].Power,
+              RequiredPower: objects__1[1]["Childs"][3].RequiredPower,
               SocketNum: -1
             };
 
             //objects__1[1]["Childs"][4]
             const house4 = {
-              GeneratedPower: root.GeneratedPower,
+              GeneratedPower: objects__1[1]["Childs"][4].GeneratedPower,
               ID: "Микрорайон 4",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
+              IsON: objects__1[1]["Childs"][4].IsON,
+              Power: objects__2[0].Power,
+              RequiredPower: objects__1[1]["Childs"][4].RequiredPower,
               SocketNum: -1
             };
 
             //objects__1[1]["Childs"][5]
             const house5 = {
-              GeneratedPower: root.GeneratedPower,
+              GeneratedPower: objects__1[1]["Childs"][5].GeneratedPower,
               ID: "Микрорайон 5",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
+              IsON: objects__1[1]["Childs"][5].IsON,
+              Power: objects__2[0].Power,
+              RequiredPower: objects__1[1]["Childs"][5].RequiredPower,
               SocketNum: -1
             };
 
             //objects__1[1]["Childs"][6]
             const house6 = {
-              GeneratedPower: root.GeneratedPower,
+              GeneratedPower: objects__1[1]["Childs"][1].GeneratedPower,
               ID: "Микрорайон 6",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
+              IsON: objects__1[1]["Childs"][1].IsON,
+              Power: objects__2[0].Power,
+              RequiredPower: objects__1[1]["Childs"][1].RequiredPower,
               SocketNum: -1
             };
 
             //objects__1[1]["Childs"][1]
             const factory1 = {
-              GeneratedPower: root.GeneratedPower,
+              GeneratedPower: objects__1[1]["Childs"][1].GeneratedPower,
               ID: "Завод 1",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
+              IsON: objects__1[1]["Childs"][1].IsON,
+              Power: objects__2[0].Power,
+              RequiredPower: objects__1[1]["Childs"][1].RequiredPower,
               SocketNum: -1
             };
 
             //objects__1[2].Childs[0].Childs[1].Childs[0]
             const hospital1 = {
-              GeneratedPower: root.GeneratedPower,
+              GeneratedPower: objects__1[2].Childs[0].Childs[1].Childs[0].GeneratedPower,
               ID: "Больница 1",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
+              IsON: objects__1[2].Childs[0].Childs[1].Childs[0].IsON,
+              Power: objects__2[0].Power,
+              RequiredPower: objects__1[2].Childs[0].Childs[1].Childs[0].RequiredPower,
               SocketNum: -1
             };
 
             //objects__2[4]
             const solarBattery2 = {
-              GeneratedPower: root.GeneratedPower,
+              GeneratedPower: objects__2[4].GeneratedPower,
               ID: "Солнечная Батарея 2",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
+              IsON: objects__2[4].IsON,
+              Power: objects__2[0].Power,
+              RequiredPower: objects__2[4].RequiredPower,
               SocketNum: -1
             };
 
             //objects__2[2]
             const windGenerator = {
-              GeneratedPower: root.GeneratedPower,
+              GeneratedPower: objects__2[2].GeneratedPower,
               ID: "Ветрогенератор",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
+              IsON: objects__2[2].IsON,
+              Power: objects__2[0].Power,
+              RequiredPower: objects__2[2].RequiredPower,
               SocketNum: -1
             };
 
@@ -203,6 +218,7 @@ $(function() {
             main_array.push(windGenerator);
 
 
+            console.log(miniSubstation1);
             for(var i = 0; i < main_array.length; i++){
               var item = main_array[i];
 
