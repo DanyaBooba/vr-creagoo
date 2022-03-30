@@ -10,15 +10,13 @@ let idName = 't';
 
 $(function() {
     var scene = document.querySelector('a-scene');
-    //DrawAxis();
     SetID();
     ReData();
     
-    /*setInterval(function() {
+    setInterval(function() {
       ReData();
-  }, interval);*/
+  }, interval);
     
-   
     function ReData() {
       var data = null;
       $.ajax({
@@ -217,8 +215,9 @@ $(function() {
             main_array.push(solarBattery2);
             main_array.push(windGenerator);
 
-
             console.log(miniSubstation1);
+
+            
             for(var i = 0; i < main_array.length; i++){
               var item = main_array[i];
 
