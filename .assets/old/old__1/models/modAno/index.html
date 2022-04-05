@@ -1,0 +1,446 @@
+
+<html>
+<head>
+    <!-- signalir -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.3/signalr.min.js"></script>
+    <!-- afarme -->
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@d893cfacc335696c7183943eab8165100c3a6e1c/dist/aframe-master.min.js"></script>
+    <!-- <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script> -->
+    <!-- <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras/dist/aframe-extras.min.js"></script>
+    <!-- <script src="https://unpkg.com/aframe-svg-extruder@1.0.0/dist/index.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+    <!-- <script src="https://unpkg.com/@editvr/aframe-dialog-popup-component@1.7.2/dist/aframe-dialog-popup-component.min.js"></script> -->
+
+    <!-- <script src="components/vr-move.js"></script> -->
+    <script src="components/change-region.js"></script>
+    <script src="components/teleport.js"></script>
+    <script src="components/room-manager.js"></script>
+    <script src="components/video-player.js"></script>
+    <script src="components/video-player-hls.js"></script>
+    <script src="components/aframe-video-controls.js"></script>
+    <script src="components/excursion-controller.js"></script>
+    <script src="components/setup-fade.js"></script>
+    <script src="components/camera-look.js"></script>
+    <script src="components/print-panel.js"></script>
+    <script src="components/agro-controller.js"></script>
+    <script src="components/signal-controller.js"></script>
+
+    <script src="components/aframe-dialog-popup-component.js"></script>
+
+
+
+    <!-- data -->
+    <script type="text/javascript" src="data/exdata.json"></script>
+</head>
+<body style="background-color: #000">
+<a-scene room-manager="nav: true; startPos: 0 0 -40" signal-controller="url:https://reutov3.bdprog.ru/staticAgro">
+    <!-- <a-scene color-space="sRGB" renderer="gammaOutput: true, physicallyCorrectLights: true"> -->
+    <a-assets >
+
+        <!-- VIDEO -->
+        <!-- <video id="chem" loop="true" src="https://320711.selcdn.ru/mnl/20200305.mp4"> </video> -->
+
+        <video id="chem" src="https://320711.selcdn.ru/mnl/20200305.mp4" controls="controls" style="display:none"
+               crossorigin="anonymous" playsinline webkit-playsinline>
+            <video id="chem2" src="https://320711.selcdn.ru/mnl/20200305.mp4" controls="controls" style="display:none"
+                   crossorigin="anonymous" playsinline webkit-playsinline></video>
+            <video id="printerVideo" src="https://320711.selcdn.ru/mnl/20200305.mp4" controls="controls" style="display:none"
+                   crossorigin="anonymous" playsinline webkit-playsinline></video>
+
+            <!-- MODELS -->
+            <a-asset-item id="tonnel" src="https://320711.selcdn.ru/izobr/models/t6.gltf"></a-asset-item>
+            <!-- <a-asset-item id="agro1" src="https://320711.selcdn.ru/izobr/models/agro1.gltf"></a-asset-item> -->
+            <!-- <a-asset-item id="agro2" src="https://320711.selcdn.ru/izobr/models/agro2.gltf"></a-asset-item> -->
+            <!-- <a-asset-item id="agro2" src="https://320711.selcdn.ru/izobr/models/agro2.gltf"></a-asset-item> -->
+            <a-asset-item id="agro3" src="https://320711.selcdn.ru/izobr/models/agro3.glb"></a-asset-item>
+
+            <a-asset-item id="co3" src="https://320711.selcdn.ru/izobr/models/co3.gltf"></a-asset-item>
+            <a-asset-item id="cristal2" src="https://320711.selcdn.ru/izobr/models/cristal2.gltf"></a-asset-item>
+            <a-asset-item id="dna" src="https://320711.selcdn.ru/izobr/models/DNA.gltf"></a-asset-item>
+            <a-asset-item id="h2o" src="https://320711.selcdn.ru/izobr/models/h2O.gltf"></a-asset-item>
+
+
+            <a-asset-item id="agrocapsule" src="https://320711.selcdn.ru/izobr//models/kapsula.glb"></a-asset-item>
+            <a-asset-item id="agroplant" src="https://320711.selcdn.ru/izobr/models/cvetok.glb"></a-asset-item>
+
+            <a-asset-item id="bnav" src="https://320711.selcdn.ru/izobr/models/bNavMesh.glb"></a-asset-item>
+
+
+            <!-- <a-asset-item id="lab1" src="https://320711.selcdn.ru/izobr/models/lab1.glb"></a-asset-item> -->
+            <!-- <a-asset-item id="lab2" src="https://320711.selcdn.ru/izobr/models/lab2.gltf"></a-asset-item> -->
+            <!-- <a-asset-item id="lab2" src="https://320711.selcdn.ru/izobr/models/lab3.glb"></a-asset-item> -->
+            <!-- <a-asset-item id="lab2" src="https://320711.selcdn.ru/izobr/models/lab3-2.glb"></a-asset-item> -->
+            <!-- <a-asset-item id="lab2" src="https://320711.selcdn.ru/izobr/models/lab3-3.glb"></a-asset-item> -->
+            <!-- <a-asset-item id="lab2" src="https://320711.selcdn.ru/izobr/models/lab3-4.glb"></a-asset-item> -->
+            <!-- <a-asset-item id="lab2" src="https://320711.selcdn.ru/izobr/models/lab3-4n.glb"></a-asset-item> -->
+            <a-asset-item id="lab2" src="https://320711.selcdn.ru/izobr/models/lab3-4nh1.glb"></a-asset-item>
+            <!-- <a-asset-item id="lab2" src="/models/lab3-4b.glb"></a-asset-item> -->
+            <!-- <a-asset-item id="laba" src="https://320711.selcdn.ru/izobr/models/lab3_a.glb"></a-asset-item> -->
+            <a-asset-item id="laba" src="https://320711.selcdn.ru/izobr/models/lab3_a3.glb"></a-asset-item>
+            <!-- <a-asset-item id="labb" src="/models/lab3_a3.glb"></a-asset-item> -->
+            <!-- <a-asset-item id="laba" src="/models/lab3_a4.glb"></a-asset-item> -->
+            <!-- <a-asset-item id="laba" src="/models/lab3_a6.glb"></a-asset-item> -->
+            <a-asset-item id="labb" src="https://320711.selcdn.ru/izobr/models/lab3_a2.glb"></a-asset-item>
+
+            <!-- <a-asset-item id="printer" src="https://320711.selcdn.ru/izobr/models/printer1.gltf"></a-asset-item> -->
+            <a-asset-item id="printer" src="https://320711.selcdn.ru/izobr/models/printer3.gltf"></a-asset-item>
+            <a-asset-item id="shelf" src="https://320711.selcdn.ru/izobr/models/shelf2.gltf"></a-asset-item>
+
+            <a-asset-item id="brilok" src="https://320711.selcdn.ru/izobr/models/brilokOp42.gltf"></a-asset-item>
+
+
+
+
+            <!-- test svg -->
+            <!-- <a-asset-item id="mozilla" src="images/biohazard.svg"></a-asset-item> -->
+    </a-assets>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a-entity position="-12 0 45"
+              gltf-model="https://creagoo.ru/vr/models/houses.glb"
+              depth-correction
+    ></a-entity>
+
+    <a-entity position="-12 0 45"
+              gltf-model="https://creagoo.ru/vr/models/solPanels.glb"
+              depth-correction
+    ></a-entity>
+
+    <a-entity position="-12 0 45"
+              gltf-model="https://creagoo.ru/vr/models/miniPods.glb"
+              depth-correction
+    ></a-entity>
+
+    <a-entity position="-12 0 45"
+              gltf-model="https://creagoo.ru/vr/models/fonars.glb"
+              depth-correction
+    ></a-entity>
+
+    <a-entity position="-12 0 45"
+              gltf-model="https://creagoo.ru/vr/models/BPs.glb"
+              depth-correction
+    ></a-entity>
+
+    <a-entity position="-12 0 45"
+              gltf-model="https://creagoo.ru/vr/models/bigPods.glb"
+              depth-correction
+    ></a-entity>
+
+    <a-entity position="-12 0 45"
+              gltf-model="https://creagoo.ru/vr/models/gori_dereviya_dekor.glb"
+              depth-correction
+    ></a-entity>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!--Штука, которая крутиться с анимацией возле хоспиталя-->
+
+    <a-entity position="-12 0 45"
+              gltf-model="https://creagoo.ru/vr/models/modAno/krytilka.glb"
+              depth-correction
+    ></a-entity>
+
+
+    <!--Вращалка-->
+    <a-entity position="41 8 60.7"
+              gltf-model="https://creagoo.ru/vr/models/modAno/krytilka2.glb"
+              animation="property: rotation; to: -0 -360 -0; loop: true; dur: 1000"
+              depth-correction
+    ></a-entity>
+    <!--Вращалка-->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--Внизу ветрогенераторы. Сначала модели в 1 файле, а дальше крутилки с анимацией, уже выставил их красиво-->
+
+    <a-entity position="-12 0 45"
+              gltf-model="https://creagoo.ru/vr/models/modAno/Aero.glb"
+              depth-correction
+    ></a-entity>
+
+
+
+
+
+
+    <!--Вращалка-->
+    <a-entity position="-86 16.8 39.16"
+              rotation="0 0 0"
+              gltf-model="https://creagoo.ru/vr/models/modAno/krytilkaForAero.glb"
+              animation="property: rotation; to: -360 0 0; loop: true; dur: 3000"
+              depth-correction
+    ></a-entity>
+    <!--Вращалка-->
+
+    <!--Вращалка-->
+    <a-entity position="-88.56 16.8 50"
+              rotation="20 0 0"
+              gltf-model="https://creagoo.ru/vr/models/modAno/krytilkaForAero.glb"
+              animation="property: rotation; to: -340 0 0; loop: true; dur: 1500"
+              depth-correction
+    ></a-entity>
+    <!--Вращалка-->
+
+    <!--Вращалка-->
+    <a-entity position="-87.4 16.8 61.5"
+              rotation="180 0 0"
+              gltf-model="https://creagoo.ru/vr/models/modAno/krytilkaForAero.glb"
+              animation="property: rotation; to: -180 0 0; loop: true; dur: 2060"
+              depth-correction
+    ></a-entity>
+    <!--Вращалка-->
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <!--Внизу машинки. Должны ездить-->
+
+
+
+    <!--Полицейская-->
+    <a-entity position="0 0 0"
+              rotation="0 0 0"
+              gltf-model="https://creagoo.ru/vr/models/modAno/carCop.glb"
+              
+              depth-correction
+    ></a-entity>
+
+
+    <!--Гоночная-->
+    <a-entity position="0 0 0"
+              rotation="0 0 0"
+              gltf-model="https://creagoo.ru/vr/models/modAno/carNoCop.glb"
+
+              depth-correction
+    ></a-entity>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <a-entity position="-12 0 45"
+              gltf-model="https://creagoo.ru/vr/models/zavod.glb"
+              depth-correction
+    ></a-entity>
+
+    <a-entity position="-12 0 45"
+              gltf-model="https://creagoo.ru/vr/models/provoda.glb"
+              depth-correction
+    ></a-entity>
+
+    <a-entity position="-12 0 45"
+              gltf-model="https://creagoo.ru/vr/models/hospital.glb"
+              depth-correction
+    ></a-entity>
+
+    <a-entity position="-12 0 45"
+              gltf-model="https://creagoo.ru/vr/models/pol.glb"
+              depth-correction
+    ></a-entity>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- CONSOLE -->
+    <a-entity id="console">
+        <a-entity id="con1" geometry="primitive: plane; width: 2.18; height: 1.429"
+                  position="0.04414 1.19112 -114.41" scale="0.26 0.26 0.26" rotation="-12 0 0"
+                  material="shader: flat; src: #conc; transparent: true"></a-entity>
+        <a-entity id="con2" geometry="primitive: plane; width: 1.768; height: 1.479"
+                  position="-2.130 1.177 -113.65" scale="0.3 0.3 0.3" rotation="-12 36 0"
+                  material="shader: flat; src: #concl; transparent: true"></a-entity>
+        <a-entity id="con3" geometry="primitive: plane; width: 1.768; height: 1.479"
+                  position="2.17 1.177 -113.68" scale="0.3 0.3 0.3" rotation="-12 -39 0"
+                  material="shader:flat; src: #concr; transparent: true"></a-entity>
+
+        <a-entity id="con4" geometry="primitive: plane; width: 1.020; height: 1.629"
+                  position="-3.35 1.240 -111.8" scale="0.4 0.4 0.4"
+                  material="side: double; shader: flat; src: #conl2; transparent: true"></a-entity>
+        <a-entity id="con4" geometry=" primitive: plane; width: 1.020; height: 1.629"
+                  position="3.48 1.240 -111.8" scale="0.4 0.4 0.4"
+                  material="side: double; shader: flat; src: #conr2; transparent: true"></a-entity>
+    </a-entity>
+
+
+
+
+
+
+    </a-entity>
+
+
+
+    <!-- <a-entity gltf-model="#room" rotation="0 0 0" scale="0.2 0.2 0.2" position = "0 1.2 0"></a-entity> -->
+
+    </a-entity>
+
+    
+    
+    
+
+
+    <!-- EXCURSION -->
+    <a-entity id="excursion" stay class="room"  visible="false" excursion-controller="target:#esphere;  edata:exdata; timg : #transb; inoimg : #info; incimg : #infoClose; font: fonts/YaHeiCustom-msdf.json; linkp:#linkParent; homeb:#homeb; backb:#backb; exbuttons:#exbuttons">
+        <!-- MINIBACKPORTAL -->
+        <a-entity id="exbuttons" position="0 0 -3" rotation="30 0 0">
+            <!-- <a-entity id="miniportal1"  position="0 0 -1.5" scale="0.5 0.5 0.5" material="color:#00ffff; opacity:0.1; transparent: true;" teleport="room:ton; position: 2 0 -60">
+              <a-entity  class="interractible" geometry="primitive: plane; width: 2.084; height: 2.084" position="0 -2.9 0" scale="1 1 1"  rotation="90 0 0" material="side: double; shader: flat; src: #p12; transparent: true; alphaTest:0.2" animation="property: rotation; from: 90 0 0; to: 90 360 0; loop: true; dur: 20000"></a-entity>
+              <a-entity  geometry="primitive: plane; width: 2.084; height: 2.084" position="0 -2.9 0" scale="1 1 1"  rotation="90 0 0" material="side: double; shader: flat; src: #p11; transparent: true; alphaTest:0.2" animation="property: rotation; from: 90 0 0; to: 90 -360 0; loop: true; dur: 10000"></a-entity>
+            </a-entity> -->
+        </a-entity>
+
+        <a-sky setup-fade="target:#esphere" color="#000" id="esphere" radius="100" rotation="0 0 0"></a-sky>
+        <a-entity id="linkParent"></a-entity>
+
+        <!-- <a-entity id="hun" class="interractible" position="2 2 -10" dialog-popup="title: My Title; body: My Body; openIconImage: #info; closeIconImage: #infoClose"></a-entity> -->
+
+
+
+    </a-entity>
+
+
+
+
+
+
+
+
+
+
+    <!-- BACKGROUND  -->
+    <a-sky src="https://creagoo.ru/vr/sky.jpg" rotation="0 -130 0" material="" geometry=""></a-sky>
+
+
+
+    <!-- CAMERA -->
+    <a-entity id="cameraRig" movement-controls="constrainToNavMesh: true; enabled: true">
+        <a-entity id="cursor" camera look-controls position="0 2.7 100" rotation="0 180 0" cursor="rayOrigin: mouse" raycaster="objects: .interractible" >
+        </a-entity>
+        <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: highPoly; color: #94c6ff"></a-entity>
+        <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: highPoly; color: #94c6ff" laser-controls line="color: red; opacity: 0.75" raycaster="objects: .interractible"></a-entity>
+
+        <a-entity id="choseHand"></a-entity>
+    </a-entity>
+
+
+
+
+</a-scene>
+</body>
+</html>

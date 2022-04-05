@@ -1,0 +1,5 @@
+http://webvrdev.pro.izobretarium.ru/danila_tests/03_11_2021_rozhkov/_razborka_6_fly_text_rewrite_text/put.php?x1=10&y1=10&z1=10&x2=11&y2=11&z2=11&x3=12&y3=12&z3=12&x4=13&y4=13&z4=13&x5=14&y5=14&z5=14&x6=15&y6=15&z6=15&x7=16&y7=16&z7=16&x8=17&y8=17&z8=17&x9=18&y9=18&z9=18&x10=19&y10=19&z10=19&x11=20&y11=20&z11=20&x12=21&y12=21&z12=21&x13=22&y13=22&z13=22&x14=23&y14=23&z14=23&x15=24&y15=24&z15=24&x16=25&y16=25&z16=25&x17=26&y17=26&z17=26&x18=27&y18=27&z18=27&x19=28&y19=28&z19=28&x20=29&y20=29&z20=29
+
+https://webvrdev.pro.izobretarium.ru/danila_tests/03_11_2021_rozhkov/_razborka_6_fly_text_rewrite_text/put.php?x1=75&y1=75&z1=75&x2=76&y2=76&z2=76&x3=77&y3=77&z3=77
+
+https://webvrdev.pro.izobretarium.ru/danila_tests/03_11_2021_rozhkov/_razborka_6_fly_text_rewrite_text/put.php?x1=5&y1=3&z1=75&x2=6&y2=3&z2=76&x3=7&y3=3&z3=77

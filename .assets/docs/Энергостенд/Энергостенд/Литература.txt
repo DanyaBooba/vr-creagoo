@@ -1,0 +1,32 @@
+https://python-scripts.com/json
+https://pythonru.com/uroki/modul-json-uroki-po-python-dlja-nachinajushhih
+http://pythonicway.com/education/basics/17-python-json-parse
+https://gist.github.com/thepacketgeek/6691361
+https://skillbox.ru/media/code/kak_ustanovit_biblioteku_v_python/ - как ставить библиотеку из исходников
+https://websockets.readthedocs.io/en/stable/intro.html#basic-example - вебсокеты на python
+https://www.sslshopper.com/ssl-converter.html конвертация SSL 
+https://docs.python.org/3/library/ssl.html
+
+
+Вы привели инструкцию, где сказано было объединить файлы в такой последовательности:
+Ключ-сертификат-цепочка.
+Это можно сделать многими способами, мы делали в терминале:
+# cat private.key > cert.pem
+# cat certificate.crt >> cert.pem
+# cat ca_bundle.crt >> cert.pem
+Проверили полученный файл и заметили, что между сертификатом и цепочкой нет переноса строки, добавили вручную.
+Далее в файле sever_browser_json_ssl.py нашли подключение сертификата и заменили название файла на cert.pem
+
+
+
+Выключить Микро район №4
+http://192.168.0.101:8004/JSONGreenCity/TurnOff?key=%D0%9C%D0%B8%D0%BA%D1%80%D0%BE%20%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%20%E2%84%964&soketnum=-1
+http://192.168.0.101:8004/JSONGreenCity/TurnOff?key=Микро район №4&soketnum=-1
+
+Включить Завод №2
+http://192.168.0.101:8004/JSONGreenCity/TurnOn?key=%D0%97%D0%B0%D0%B2%D0%BE%D0%B4%20%E2%84%962&soketnum=-1
+http://192.168.0.101:8004/JSONGreenCity/TurnOn?key=Завод №2&soketnum=-1
+
+Выключить Завод №2
+http://192.168.0.101:8004/JSONGreenCity/TurnOff?key=%D0%97%D0%B0%D0%B2%D0%BE%D0%B4%20%E2%84%962&soketnum=-1
+http://192.168.0.101:8004/JSONGreenCity/TurnOff?key=Завод №2&soketnum=-1
