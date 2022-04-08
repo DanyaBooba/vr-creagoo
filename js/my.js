@@ -10,6 +10,7 @@ let idName = 't';
 
 $(function() {
     var scene = document.querySelector('a-scene');
+
     SetID();
     ReData();
     
@@ -27,9 +28,10 @@ $(function() {
         data = mainFile;
         if (data === null) {
           console.log('File is empty');
-
         }
         else if(data !== null){
+
+          console.log('1');
 
             let main_array = ["empty"];            
 
@@ -38,166 +40,262 @@ $(function() {
             var objects__2 = root["Stations"];
 
             // Формируем Обьекты
-            
+            if(root !== null){
+              const substation = {
+                GeneratedPower: root.GeneratedPower,
+                ID: "Подстанция",
+                IsON: true,
+                RequiredPower: root.RequiredPower,
+                SocketNum: -1
+              };
+            } else{
+              const substation = {
+                GeneratedPower: GetRandom(),
+                ID: "Подстанция",
+                IsON: true,
+                RequiredPower: GetRandom(),
+                SocketNum: -1
+              };
+            }
 
-            const substation = {
-              GeneratedPower: root.GeneratedPower,
-              ID: "Подстанция",
-              IsON: true,
-              RequiredPower: root.RequiredPower,
-              SocketNum: -1
-            };
 
             //objects__2[0]
-            const solarBattery1 = {
-              GeneratedPower: objects__2[0].GeneratedPower,
-              ID: "Солнечная Батарея 1",
-              IsON: objects__2[0].IsON,
-              Power: objects__2[0].Power,
-              RequiredPower: objects__2[0].RequiredPower,
-              SocketNum: -1
-            };
+            if(objects__2[0] !== null){
+              const solarBattery1 = {
+                GeneratedPower: objects__2[0].GeneratedPower,
+                ID: "Солнечная Батарея 1",
+                IsON: objects__2[0].IsON,
+                Power: objects__2[0].Power,
+                RequiredPower: objects__2[0].RequiredPower,
+                SocketNum: -1
+              };
+            } else{
+              const solarBattery1 = {
+                GeneratedPower: GetRandom(),
+                ID: "Солнечная Батарея 1",
+                IsON: false,
+                Power: GetRandom(),
+                RequiredPower: GetRandom(),
+                SocketNum: -1
+              };
+            }
+            
 
             //objects__1[2].Childs[0]
-            const miniSubstation1 = {
-              GeneratedPower: objects__1[2].Childs[0].GeneratedPower,
-              ID: "Мини Подстанция 1",
-              IsON: objects__1[2].Childs[0].IsON,
-              RequiredPower: objects__1[2].Childs[0].RequiredPower,
-              SocketNum: -1
-            };
-
-            console.log(objects__1[0].Childs[0]);
+            if(objects__1[2].Childs[0] !== null){
+              const miniSubstation1 = {
+                GeneratedPower: objects__1[2].Childs[0].GeneratedPower,
+                ID: "Мини Подстанция 1",
+                IsON: objects__1[2].Childs[0].IsON,
+                RequiredPower: objects__1[2].Childs[0].RequiredPower,
+                SocketNum: -1
+              };
+            } else{
+              const miniSubstation1 = {
+                GeneratedPower: GetRandom(),
+                ID: "Мини Подстанция 1",
+                IsON: false,
+                RequiredPower: GetRandom(),
+                SocketNum: -1
+              };
+            }
+            
 
             //objects__1[0].Childs[0]
-            const miniSubstation2 = {
-              GeneratedPower: objects__1[0].Childs[0].GeneratedPower,
-              ID: "Мини Подстанция 2",
-              IsON: objects__1[0].Childs[0].IsON,
-              Power: objects__2[0].Power,
-              RequiredPower: objects__1[0].Childs[0].RequiredPower,
-              SocketNum: -1
-            };
+            if(objects__1[0].Childs[0] !== null){
+              const miniSubstation2 = {
+                GeneratedPower: objects__1[0].Childs[0].GeneratedPower,
+                ID: "Мини Подстанция 2",
+                IsON: objects__1[0].Childs[0].IsON,
+                Power: objects__2[0].Power,
+                RequiredPower: objects__1[0].Childs[0].RequiredPower,
+                SocketNum: -1
+              };
+            } else{
+              const miniSubstation2 = {
+                GeneratedPower: GetRandom(),
+                ID: "Мини Подстанция 2",
+                IsON: false,
+                Power: GetRandom(),
+                RequiredPower: GetRandom(),
+                SocketNum: -1
+              };
+            }
+            
 
             //objects__1[1]["Childs"][0]
-            const hospital2 = {
-              GeneratedPower: objects__1[1]["Childs"][0].GeneratedPower,
-              ID: "Больница 2",
-              IsON: objects__1[1]["Childs"][0].IsON,
-              Power: objects__2[0].Power,
-              RequiredPower: objects__1[1]["Childs"][0].RequiredPower,
-              SocketNum: -1
-            };
+            if(objects__1[1]["Childs"][0] !== null){
+              const hospital2 = {
+                GeneratedPower: objects__1[1]["Childs"][0].GeneratedPower,
+                ID: "Больница 2",
+                IsON: objects__1[1]["Childs"][0].IsON,
+                Power: objects__2[0].Power,
+                RequiredPower: objects__1[1]["Childs"][0].RequiredPower,
+                SocketNum: -1
+              };
+            } else{
+              const hospital2 = {
+                GeneratedPower: GetRandom(),
+                ID: "Больница 2",
+                IsON: false,
+                Power: GetRandom(),
+                RequiredPower: GetRandom(),
+                SocketNum: -1
+              };
+            }
+            
 
             //objects__1[1]["Childs"][2]
-            const factory2 = {
-              GeneratedPower: objects__1[1]["Childs"][2].GeneratedPower,
-              ID: "Завод 2",
-              IsON: objects__1[1]["Childs"][2].IsON,
-              Power: objects__2[0].Power,
-              RequiredPower: objects__1[1]["Childs"][2].RequiredPower,
-              SocketNum: -1
-            };
+            if(objects__1[1]["Childs"][2] !== null){
+              const factory2 = {
+                GeneratedPower: objects__1[1]["Childs"][2].GeneratedPower,
+                ID: "Завод 2",
+                IsON: objects__1[1]["Childs"][2].IsON,
+                Power: objects__2[0].Power,
+                RequiredPower: objects__1[1]["Childs"][2].RequiredPower,
+                SocketNum: -1
+              };
+            } else{
+              const factory2 = {
+                GeneratedPower: objects__1[1]["Childs"][2].GeneratedPower,
+                ID: "Завод 2",
+                IsON: false,
+                Power: GetRandom(),
+                RequiredPower: GetRandom(),
+                SocketNum: -1
+              };
+            }
+            
 
             //objects__1[0].Childs[0].Childs[1].Childs[0]
-            const house1 = {
-              GeneratedPower: objects__1[0].Childs[0].Childs[1].Childs[0].GeneratedPower,
-              ID: "Микрорайон 1",
-              IsON: objects__1[0].Childs[0].Childs[1].Childs[0].IsON,
-              Power: objects__2[0].Power,
-              RequiredPower: objects__1[0].Childs[0].Childs[1].Childs[0].RequiredPower,
-              SocketNum: -1
-            };
+            if(objects__1[0].Childs[0].Childs[1].Childs[0] !== null){
+              const house1 = {
+                GeneratedPower: objects__1[0].Childs[0].Childs[1].Childs[0].GeneratedPower,
+                ID: "Микрорайон 1",
+                IsON: objects__1[0].Childs[0].Childs[1].Childs[0].IsON,
+                Power: objects__2[0].Power,
+                RequiredPower: objects__1[0].Childs[0].Childs[1].Childs[0].RequiredPower,
+                SocketNum: -1
+              };
+            }
+            
 
             //objects__1[0].Childs[0].Childs[1].Childs[1]
-            const house2 = {
-              GeneratedPower: objects__1[0].Childs[0].Childs[1].Childs[1].GeneratedPower,
-              ID: "Микрорайон 2",
-              IsON: objects__1[0].Childs[0].Childs[1].Childs[1].IsON,
-              Power: objects__2[0].Power,
-              RequiredPower: objects__1[0].Childs[0].Childs[1].Childs[1].RequiredPower,
-              SocketNum: -1
-            };
+            if(objects__1[0].Childs[0].Childs[1].Childs[1] !== null){
+              const house2 = {
+                GeneratedPower: objects__1[0].Childs[0].Childs[1].Childs[1].GeneratedPower,
+                ID: "Микрорайон 2",
+                IsON: objects__1[0].Childs[0].Childs[1].Childs[1].IsON,
+                Power: objects__2[0].Power,
+                RequiredPower: objects__1[0].Childs[0].Childs[1].Childs[1].RequiredPower,
+                SocketNum: -1
+              };
+            }
+            
 
             //objects__1[1]["Childs"][3]
-            const house3 = {
-              GeneratedPower: objects__1[1]["Childs"][3].GeneratedPower,
-              ID: "Микрорайон 3",
-              IsON: objects__1[1]["Childs"][3].IsON,
-              Power: objects__2[0].Power,
-              RequiredPower: objects__1[1]["Childs"][3].RequiredPower,
-              SocketNum: -1
-            };
+            if(objects__1[1]["Childs"][3] !== null){
+              const house3 = {
+                GeneratedPower: objects__1[1]["Childs"][3].GeneratedPower,
+                ID: "Микрорайон 3",
+                IsON: objects__1[1]["Childs"][3].IsON,
+                Power: objects__2[0].Power,
+                RequiredPower: objects__1[1]["Childs"][3].RequiredPower,
+                SocketNum: -1
+              };
+            }
+            
 
             //objects__1[1]["Childs"][4]
-            const house4 = {
-              GeneratedPower: objects__1[1]["Childs"][4].GeneratedPower,
-              ID: "Микрорайон 4",
-              IsON: objects__1[1]["Childs"][4].IsON,
-              Power: objects__2[0].Power,
-              RequiredPower: objects__1[1]["Childs"][4].RequiredPower,
-              SocketNum: -1
-            };
+            if(objects__1[1]["Childs"][4] !== null){
+              const house4 = {
+                GeneratedPower: objects__1[1]["Childs"][4].GeneratedPower,
+                ID: "Микрорайон 4",
+                IsON: objects__1[1]["Childs"][4].IsON,
+                Power: objects__2[0].Power,
+                RequiredPower: objects__1[1]["Childs"][4].RequiredPower,
+                SocketNum: -1
+              };
+            }
+            
 
             //objects__1[1]["Childs"][5]
-            const house5 = {
-              GeneratedPower: objects__1[1]["Childs"][5].GeneratedPower,
-              ID: "Микрорайон 5",
-              IsON: objects__1[1]["Childs"][5].IsON,
-              Power: objects__2[0].Power,
-              RequiredPower: objects__1[1]["Childs"][5].RequiredPower,
-              SocketNum: -1
-            };
+            if(objects__1[1]["Childs"][5] !== null){
+              const house5 = {
+                GeneratedPower: objects__1[1]["Childs"][5].GeneratedPower,
+                ID: "Микрорайон 5",
+                IsON: objects__1[1]["Childs"][5].IsON,
+                Power: objects__2[0].Power,
+                RequiredPower: objects__1[1]["Childs"][5].RequiredPower,
+                SocketNum: -1
+              };
+            }
+            
 
             //objects__1[1]["Childs"][6]
-            const house6 = {
-              GeneratedPower: objects__1[1]["Childs"][1].GeneratedPower,
-              ID: "Микрорайон 6",
-              IsON: objects__1[1]["Childs"][1].IsON,
-              Power: objects__2[0].Power,
-              RequiredPower: objects__1[1]["Childs"][1].RequiredPower,
-              SocketNum: -1
-            };
+            if(objects__1[1]["Childs"][6] !== null){
+              const house6 = {
+                GeneratedPower: objects__1[1]["Childs"][1].GeneratedPower,
+                ID: "Микрорайон 6",
+                IsON: objects__1[1]["Childs"][1].IsON,
+                Power: objects__2[0].Power,
+                RequiredPower: objects__1[1]["Childs"][1].RequiredPower,
+                SocketNum: -1
+              };
+            }
+            
 
             //objects__1[1]["Childs"][1]
-            const factory1 = {
-              GeneratedPower: objects__1[1]["Childs"][1].GeneratedPower,
-              ID: "Завод 1",
-              IsON: objects__1[1]["Childs"][1].IsON,
-              Power: objects__2[0].Power,
-              RequiredPower: objects__1[1]["Childs"][1].RequiredPower,
-              SocketNum: -1
-            };
+            if(objects__1[1]["Childs"][1] !== null){
+              const factory1 = {
+                GeneratedPower: objects__1[1]["Childs"][1].GeneratedPower,
+                ID: "Завод 1",
+                IsON: objects__1[1]["Childs"][1].IsON,
+                Power: objects__2[0].Power,
+                RequiredPower: objects__1[1]["Childs"][1].RequiredPower,
+                SocketNum: -1
+              };
+            }
+            
 
             //objects__1[2].Childs[0].Childs[1].Childs[0]
-            const hospital1 = {
-              GeneratedPower: objects__1[2].Childs[0].Childs[1].Childs[0].GeneratedPower,
-              ID: "Больница 1",
-              IsON: objects__1[2].Childs[0].Childs[1].Childs[0].IsON,
-              Power: objects__2[0].Power,
-              RequiredPower: objects__1[2].Childs[0].Childs[1].Childs[0].RequiredPower,
-              SocketNum: -1
-            };
+            if(objects__1[2].Childs[0].Childs[1].Childs[0] !== null){
+              const hospital1 = {
+                GeneratedPower: objects__1[2].Childs[0].Childs[1].Childs[0].GeneratedPower,
+                ID: "Больница 1",
+                IsON: objects__1[2].Childs[0].Childs[1].Childs[0].IsON,
+                Power: objects__2[0].Power,
+                RequiredPower: objects__1[2].Childs[0].Childs[1].Childs[0].RequiredPower,
+                SocketNum: -1
+              };
+            }
+            
 
             //objects__2[4]
-            const solarBattery2 = {
-              GeneratedPower: objects__2[4].GeneratedPower,
-              ID: "Солнечная Батарея 2",
-              IsON: objects__2[4].IsON,
-              Power: objects__2[0].Power,
-              RequiredPower: objects__2[4].RequiredPower,
-              SocketNum: -1
-            };
+            if(objects__2[4] !== null){
+              const solarBattery2 = {
+                GeneratedPower: objects__2[4].GeneratedPower,
+                ID: "Солнечная Батарея 2",
+                IsON: objects__2[4].IsON,
+                Power: objects__2[0].Power,
+                RequiredPower: objects__2[4].RequiredPower,
+                SocketNum: -1
+              };
+            }
+            
 
             //objects__2[2]
-            const windGenerator = {
-              GeneratedPower: objects__2[2].GeneratedPower,
-              ID: "Ветрогенератор",
-              IsON: objects__2[2].IsON,
-              Power: objects__2[0].Power,
-              RequiredPower: objects__2[2].RequiredPower,
-              SocketNum: -1
-            };
+            if(objects__2[2] !== null){
+              const windGenerator = {
+                GeneratedPower: objects__2[2].GeneratedPower,
+                ID: "Ветрогенератор",
+                IsON: objects__2[2].IsON,
+                Power: objects__2[0].Power,
+                RequiredPower: objects__2[2].RequiredPower,
+                SocketNum: -1
+              };
+            }
+            
 
             // Формируем массив
             main_array.push(substation);
@@ -216,8 +314,6 @@ $(function() {
             main_array.push(hospital1);
             main_array.push(solarBattery2);
             main_array.push(windGenerator);
-
-            console.log(miniSubstation1);
 
             
             for(var i = 0; i < main_array.length; i++){
@@ -345,7 +441,6 @@ $(function() {
       else{
         return key;
       }
-
     }
 
     function ReplacementIsOn(value){
@@ -364,7 +459,6 @@ $(function() {
         return ReplacementIsOn(false);
       }
     }
-
 
     function CreateElement(id, x, y, z) {
       var textA = document.createElement('a-text');

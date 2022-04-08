@@ -118,13 +118,13 @@ $array1 = [
         <?php $c = 2 ?>
         <?php for ($i = 0; $i < count($array1); $i++) : ?>
 
-            <a-plane id="<?php echo $array[$i]["id"] ?>" material="color: #696969; opacity: 0.4;" position="-18.28 0.5 11.38" rotation="0 180 0" scale="2.5 3 1"></a-plane>
+            <a-plane id="<?php echo $array1[$i]["id"] ?>" material="color: #696969; opacity: 0.4;" position="<?php echo $array1[$i]["x"] . " 0.5 " . $array1[$i]["z"] ?>" rotation="<?php echo "0 " . $array1[$i]["rotation"] . " 0" ?>" scale="2.5 3 1"></a-plane>
 
-            <a-entity text="value: <?php echo $array[$i]["id"] ?>; color: #ffffff; align: center;" id="t<?php echo $c ?>__id" scale="7 7 1" position="<?php echo $array[$i]["x"] . " 1.5 " . $array[$i]["z"] ?>" rotation="<?php echo "0 " . $array[$i]["rotation"] . " 0" ?>"></a-entity>
-            <a-entity text="value: <?php echo $array[$i]["id"] ?>; color: #ffffff; align: center;" id="t<?php echo $c ?>__genpow" scale="7 7 1" position="<?php echo $array[$i]["x"] . " 1 " . $array[$i]["z"] ?>" rotation="<?php echo "0 " . $array[$i]["rotation"] . " 0" ?>"></a-entity>
-            <a-entity text="value: <?php echo $array[$i]["id"] ?>; color: #ffffff; align: center;" id="t<?php echo $c ?>__power" scale="7 7 1" position="<?php echo $array[$i]["x"] . " 0.5 " . $array[$i]["z"] ?>" rotation="<?php echo "0 " . $array[$i]["rotation"] . " 0" ?>"></a-entity>
-            <a-entity text="value: <?php echo $array[$i]["id"] ?>; color: #ffffff; align: center;" id="t<?php echo $c ?>__reqpower" scale="7 7 1" position="<?php echo $array[$i]["x"] . " 0 " . $array[$i]["z"] ?>" rotation="<?php echo "0 " . $array[$i]["rotation"] . " 0" ?>"></a-entity>
-            <a-entity text="value: <?php echo $array[$i]["id"] ?>; color: #ffffff; align: center;" id="t<?php echo $c ?>__ison" scale="7 7 1" position="<?php echo $array[$i]["x"] . " -0.5 " . $array[$i]["z"] ?>" rotation="<?php echo "0 " . $array[$i]["rotation"] . " 0" ?>"></a-entity>
+            <a-entity text="value: <?php echo $array1[$i]["id"] ?>; color: #ffffff; align: center;" id="t<?php echo $c ?>__id" scale="7 7 1" position="<?php echo $array1[$i]["x"] . " 1.5 " . $array1[$i]["z"] ?>" rotation="<?php echo "0 " . $array1[$i]["rotation"] . " 0" ?>"></a-entity>
+            <a-entity text="value: <?php echo $array1[$i]["id"] ?>; color: #ffffff; align: center;" id="t<?php echo $c ?>__genpow" scale="7 7 1" position="<?php echo $array1[$i]["x"] . " 1 " . $array1[$i]["z"] ?>" rotation="<?php echo "0 " . $array1[$i]["rotation"] . " 0" ?>"></a-entity>
+            <a-entity text="value: <?php echo $array1[$i]["id"] ?>; color: #ffffff; align: center;" id="t<?php echo $c ?>__power" scale="7 7 1" position="<?php echo $array1[$i]["x"] . " 0.5 " . $array1[$i]["z"] ?>" rotation="<?php echo "0 " . $array1[$i]["rotation"] . " 0" ?>"></a-entity>
+            <a-entity text="value: <?php echo $array1[$i]["id"] ?>; color: #ffffff; align: center;" id="t<?php echo $c ?>__reqpower" scale="7 7 1" position="<?php echo $array1[$i]["x"] . " 0 " . $array1[$i]["z"] ?>" rotation="<?php echo "0 " . $array1[$i]["rotation"] . " 0" ?>"></a-entity>
+            <a-entity text="value: <?php echo $array1[$i]["id"] ?>; color: #ffffff; align: center;" id="t<?php echo $c ?>__ison" scale="7 7 1" position="<?php echo $array1[$i]["x"] . " -0.5 " . $array1[$i]["z"] ?>" rotation="<?php echo "0 " . $array1[$i]["rotation"] . " 0" ?>"></a-entity>
 
             <?php $c += 1 ?>
         <?php endfor; ?>

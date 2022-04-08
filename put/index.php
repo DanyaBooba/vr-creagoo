@@ -1,5 +1,7 @@
 <?php
 
+include_once "formatjs.php";
+
 # Скрипт отвечает за передачу Json-данных через GET
 $path = "../json/index.txt";
 
@@ -8,12 +10,20 @@ if (!empty($_GET)) {
     $json_get = $_GET["q"];
     if (!empty($json_get)) {
         #Дебажим
+        echo "<div style='display: none'>";
         var_dump($json_get);
+        echo "</div>";
+
+        $editjs = FormatJS($json_get);
+
+        var_dump($editjs);
 
         # Открываем, записываем в файл, закрываем
         $fileopen = fopen($path, 'w');
-        fwrite($fileopen, $json_get);
+        fwrite($fileopen, $editjs);
         fclose($fileopen);
+    } else {
+        echo "Json await...";
     }
 } else {
     #Если нет JSON
