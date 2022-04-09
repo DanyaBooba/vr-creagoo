@@ -1,12 +1,13 @@
 // Основной файл
 
 let interval = 200;
-let loopLength = 5;
 
-let countObjects = 18;
+let objCount = 16;
 
 let jsonFile = '/json/index.txt';
 let idName = 't';
+
+let main_array = [];
 
 $(function() {
     var scene = document.querySelector('a-scene');
@@ -31,341 +32,10 @@ $(function() {
         }
         else if(data !== null){
 
-          console.log('1');
-
-            let main_array = ["empty"];            
-
-            var root = data["RootNode"];
-            var objects__1 = root["Lines"];
-            var objects__2 = root["Stations"];
-
-            // Формируем Обьекты
-            if(root !== null){
-              const substation = {
-                GeneratedPower: root.GeneratedPower,
-                ID: "Подстанция",
-                IsON: true,
-                RequiredPower: root.RequiredPower,
-                SocketNum: -1
-              };
-            } else{
-              const substation = {
-                GeneratedPower: GetRandom(),
-                ID: "Подстанция",
-                IsON: true,
-                RequiredPower: GetRandom(),
-                SocketNum: -1
-              };
-            }
-
-
-            //objects__2[0]
-            if(objects__2[0] !== null){
-              const solarBattery1 = {
-                GeneratedPower: objects__2[0].GeneratedPower,
-                ID: "Солнечная Батарея 1",
-                IsON: objects__2[0].IsON,
-                Power: objects__2[0].Power,
-                RequiredPower: objects__2[0].RequiredPower,
-                SocketNum: -1
-              };
-            } else{
-              const solarBattery1 = {
-                GeneratedPower: GetRandom(),
-                ID: "Солнечная Батарея 1",
-                IsON: false,
-                Power: GetRandom(),
-                RequiredPower: GetRandom(),
-                SocketNum: -1
-              };
-            }
-            
-
-            //objects__1[2].Childs[0]
-            if(objects__1[2].Childs[0] !== null){
-              const miniSubstation1 = {
-                GeneratedPower: objects__1[2].Childs[0].GeneratedPower,
-                ID: "Мини Подстанция 1",
-                IsON: objects__1[2].Childs[0].IsON,
-                RequiredPower: objects__1[2].Childs[0].RequiredPower,
-                SocketNum: -1
-              };
-            } else{
-              const miniSubstation1 = {
-                GeneratedPower: GetRandom(),
-                ID: "Мини Подстанция 1",
-                IsON: false,
-                RequiredPower: GetRandom(),
-                SocketNum: -1
-              };
-            }
-            
-
-            //objects__1[0].Childs[0]
-            if(objects__1[0].Childs[0] !== null){
-              const miniSubstation2 = {
-                GeneratedPower: objects__1[0].Childs[0].GeneratedPower,
-                ID: "Мини Подстанция 2",
-                IsON: objects__1[0].Childs[0].IsON,
-                Power: objects__2[0].Power,
-                RequiredPower: objects__1[0].Childs[0].RequiredPower,
-                SocketNum: -1
-              };
-            } else{
-              const miniSubstation2 = {
-                GeneratedPower: GetRandom(),
-                ID: "Мини Подстанция 2",
-                IsON: false,
-                Power: GetRandom(),
-                RequiredPower: GetRandom(),
-                SocketNum: -1
-              };
-            }
-            
-
-            //objects__1[1]["Childs"][0]
-            if(objects__1[1]["Childs"][0] !== null){
-              const hospital2 = {
-                GeneratedPower: objects__1[1]["Childs"][0].GeneratedPower,
-                ID: "Больница 2",
-                IsON: objects__1[1]["Childs"][0].IsON,
-                Power: objects__2[0].Power,
-                RequiredPower: objects__1[1]["Childs"][0].RequiredPower,
-                SocketNum: -1
-              };
-            } else{
-              const hospital2 = {
-                GeneratedPower: GetRandom(),
-                ID: "Больница 2",
-                IsON: false,
-                Power: GetRandom(),
-                RequiredPower: GetRandom(),
-                SocketNum: -1
-              };
-            }
-            
-
-            //objects__1[1]["Childs"][2]
-            if(objects__1[1]["Childs"][2] !== null){
-              const factory2 = {
-                GeneratedPower: objects__1[1]["Childs"][2].GeneratedPower,
-                ID: "Завод 2",
-                IsON: objects__1[1]["Childs"][2].IsON,
-                Power: objects__2[0].Power,
-                RequiredPower: objects__1[1]["Childs"][2].RequiredPower,
-                SocketNum: -1
-              };
-            } else{
-              const factory2 = {
-                GeneratedPower: objects__1[1]["Childs"][2].GeneratedPower,
-                ID: "Завод 2",
-                IsON: false,
-                Power: GetRandom(),
-                RequiredPower: GetRandom(),
-                SocketNum: -1
-              };
-            }
-            
-
-            //objects__1[0].Childs[0].Childs[1].Childs[0]
-            if(objects__1[0].Childs[0].Childs[1].Childs[0] !== null){
-              const house1 = {
-                GeneratedPower: objects__1[0].Childs[0].Childs[1].Childs[0].GeneratedPower,
-                ID: "Микрорайон 1",
-                IsON: objects__1[0].Childs[0].Childs[1].Childs[0].IsON,
-                Power: objects__2[0].Power,
-                RequiredPower: objects__1[0].Childs[0].Childs[1].Childs[0].RequiredPower,
-                SocketNum: -1
-              };
-            }
-            
-
-            //objects__1[0].Childs[0].Childs[1].Childs[1]
-            if(objects__1[0].Childs[0].Childs[1].Childs[1] !== null){
-              const house2 = {
-                GeneratedPower: objects__1[0].Childs[0].Childs[1].Childs[1].GeneratedPower,
-                ID: "Микрорайон 2",
-                IsON: objects__1[0].Childs[0].Childs[1].Childs[1].IsON,
-                Power: objects__2[0].Power,
-                RequiredPower: objects__1[0].Childs[0].Childs[1].Childs[1].RequiredPower,
-                SocketNum: -1
-              };
-            }
-            
-
-            //objects__1[1]["Childs"][3]
-            if(objects__1[1]["Childs"][3] !== null){
-              const house3 = {
-                GeneratedPower: objects__1[1]["Childs"][3].GeneratedPower,
-                ID: "Микрорайон 3",
-                IsON: objects__1[1]["Childs"][3].IsON,
-                Power: objects__2[0].Power,
-                RequiredPower: objects__1[1]["Childs"][3].RequiredPower,
-                SocketNum: -1
-              };
-            }
-            
-
-            //objects__1[1]["Childs"][4]
-            if(objects__1[1]["Childs"][4] !== null){
-              const house4 = {
-                GeneratedPower: objects__1[1]["Childs"][4].GeneratedPower,
-                ID: "Микрорайон 4",
-                IsON: objects__1[1]["Childs"][4].IsON,
-                Power: objects__2[0].Power,
-                RequiredPower: objects__1[1]["Childs"][4].RequiredPower,
-                SocketNum: -1
-              };
-            }
-            
-
-            //objects__1[1]["Childs"][5]
-            if(objects__1[1]["Childs"][5] !== null){
-              const house5 = {
-                GeneratedPower: objects__1[1]["Childs"][5].GeneratedPower,
-                ID: "Микрорайон 5",
-                IsON: objects__1[1]["Childs"][5].IsON,
-                Power: objects__2[0].Power,
-                RequiredPower: objects__1[1]["Childs"][5].RequiredPower,
-                SocketNum: -1
-              };
-            }
-            
-
-            //objects__1[1]["Childs"][6]
-            if(objects__1[1]["Childs"][6] !== null){
-              const house6 = {
-                GeneratedPower: objects__1[1]["Childs"][1].GeneratedPower,
-                ID: "Микрорайон 6",
-                IsON: objects__1[1]["Childs"][1].IsON,
-                Power: objects__2[0].Power,
-                RequiredPower: objects__1[1]["Childs"][1].RequiredPower,
-                SocketNum: -1
-              };
-            }
-            
-
-            //objects__1[1]["Childs"][1]
-            if(objects__1[1]["Childs"][1] !== null){
-              const factory1 = {
-                GeneratedPower: objects__1[1]["Childs"][1].GeneratedPower,
-                ID: "Завод 1",
-                IsON: objects__1[1]["Childs"][1].IsON,
-                Power: objects__2[0].Power,
-                RequiredPower: objects__1[1]["Childs"][1].RequiredPower,
-                SocketNum: -1
-              };
-            }
-            
-
-            //objects__1[2].Childs[0].Childs[1].Childs[0]
-            if(objects__1[2].Childs[0].Childs[1].Childs[0] !== null){
-              const hospital1 = {
-                GeneratedPower: objects__1[2].Childs[0].Childs[1].Childs[0].GeneratedPower,
-                ID: "Больница 1",
-                IsON: objects__1[2].Childs[0].Childs[1].Childs[0].IsON,
-                Power: objects__2[0].Power,
-                RequiredPower: objects__1[2].Childs[0].Childs[1].Childs[0].RequiredPower,
-                SocketNum: -1
-              };
-            }
-            
-
-            //objects__2[4]
-            if(objects__2[4] !== null){
-              const solarBattery2 = {
-                GeneratedPower: objects__2[4].GeneratedPower,
-                ID: "Солнечная Батарея 2",
-                IsON: objects__2[4].IsON,
-                Power: objects__2[0].Power,
-                RequiredPower: objects__2[4].RequiredPower,
-                SocketNum: -1
-              };
-            }
-            
-
-            //objects__2[2]
-            if(objects__2[2] !== null){
-              const windGenerator = {
-                GeneratedPower: objects__2[2].GeneratedPower,
-                ID: "Ветрогенератор",
-                IsON: objects__2[2].IsON,
-                Power: objects__2[0].Power,
-                RequiredPower: objects__2[2].RequiredPower,
-                SocketNum: -1
-              };
-            }
-            
-
-            // Формируем массив
-            main_array.push(substation);
-            main_array.push(solarBattery1);
-            main_array.push(miniSubstation1);
-            main_array.push(miniSubstation2);
-            main_array.push(hospital2);
-            main_array.push(factory2);
-            main_array.push(house1);
-            main_array.push(house2);
-            main_array.push(house3);
-            main_array.push(house4);
-            main_array.push(house5);
-            main_array.push(house6);
-            main_array.push(factory1);
-            main_array.push(hospital1);
-            main_array.push(solarBattery2);
-            main_array.push(windGenerator);
-
-            
-            for(var i = 0; i < main_array.length; i++){
-              var item = main_array[i];
-
-              if($('#' + idName + i + '__id').length){
-                $('#' + idName + i + '__id')[0].setAttribute('text', {
-                  value: ReplacementOfKeys(item["ID"]),
-                });
-              }
-
-              if($('#' + idName + i + '__ison').length){
-                
-                bool = item["IsON"];
-
-                $('#' + idName + i + '__ison')[0].setAttribute('text', {
-                  value: '[' + ReplacementIsOn(item["IsON"]) + ']',
-                });
-
-                if(bool === true){
-                  $('#' + idName + i + '__ison')[0].setAttribute('text', {
-                    color: '#2BFF3B',
-                  });
-                }
-                else if(bool === false){
-                  $('#' + idName + i + '__ison')[0].setAttribute('text', {
-                    color: '#FF2B2B',
-                  });
-                }
-
-              }
-
-              if($('#' + idName + i + '__genpow').length){
-                $('#' + idName + i + '__genpow')[0].setAttribute('text', {
-                  value: Math.round(item["GeneratedPower"]) + ' kWt',
-                });
-              }
-
-              if($('#' + idName + i + '__power').length){
-                $('#' + idName + i + '__power')[0].setAttribute('text', {
-                  value: Math.round(item["Power"]) + ' kWt',
-                });
-              }
-
-              if($('#' + idName + i + '__reqpower').length){
-                $('#' + idName + i + '__reqpower')[0].setAttribute('text', {
-                  value: Math.round(item["RequiredPower"]) + ' kWt',
-                });
-              }
-
-
-            }
+          SetArray(data);
+          for(var i = 0; i < main_array.length; i++){
+            UpdateUI(i);
+          }
 
         }
       });
@@ -374,10 +44,11 @@ $(function() {
 
     function SetID(){
 
-      for (var i = 1; i < countObjects; i++) {
-        if ($('#' + idName + i).length) {
+      for (var i = 0; i < objCount; i++) {
 
-          $('#' + idName + i)[0].setAttribute('text', {
+        if ($('#' + idName + i + "__id").length) {
+          console.log("#" + idName + i + "__id");
+          $('#' + idName + i + "__id")[0].setAttribute('text', {
             value: '[' + i + ']',
           });
         }
@@ -473,6 +144,103 @@ $(function() {
       });
       textA.setAttribute('id', 'idt' + id);
       scene.appendChild(textA);
+    }
+
+    function SetArray(data){
+      // Указываем переменные
+      substation = data["substation"];
+      solarBattery1 = data["solarBattery1"];
+      solarBattery2 = data["solarBattery2"];
+      miniSubstation1 = data["miniSubstation1"];
+      miniSubstation2 = data["miniSubstation2"];
+      hospital1 = data["hospital1"];
+      hospital2 = data["hospital2"];
+      factory1 = data["factory1"];
+      factory2 = data["factory2"];
+      house1 = data["house1"];
+      house2 = data["house2"];
+      house3 = data["house3"];
+      house4 = data["house4"];
+      house5 = data["house5"];
+      house6 = data["house6"];
+      windGenerator = data["windGenerator"];
+
+
+      // Формируем массив
+      main_array = [];
+
+      main_array.push(substation);
+      main_array.push(solarBattery1);
+      main_array.push(miniSubstation1);
+      main_array.push(miniSubstation2);
+      main_array.push(hospital2);
+      main_array.push(factory2);
+      main_array.push(house1);
+      main_array.push(house2);
+      main_array.push(house3);
+      main_array.push(house4);
+      main_array.push(house5);
+      main_array.push(house6);
+      main_array.push(factory1);
+      main_array.push(hospital1);
+      main_array.push(solarBattery2);
+      main_array.push(windGenerator);
+    }
+
+    function UpdateUI(i){
+
+      var item = main_array[i];
+
+      //Name
+      if($('#' + idName + i + '__id').length){
+        $('#' + idName + i + '__id')[0].setAttribute('text', {
+          value: ReplacementOfKeys(item["ID"]),
+        });
+      }
+
+      //IsOn
+      if($('#' + idName + i + '__ison').length){
+        
+        bool = item["IsON"];
+
+        $('#' + idName + i + '__ison')[0].setAttribute('text', {
+          value: '[' + ReplacementIsOn(item["IsON"]) + ']',
+        });
+
+        if(bool === true){
+          $('#' + idName + i + '__ison')[0].setAttribute('text', {
+            color: '#2BFF3B',
+          });
+        }
+        else if(bool === false){
+          $('#' + idName + i + '__ison')[0].setAttribute('text', {
+            color: '#FF2B2B',
+          });
+        }
+
+      }
+
+      //GenPower
+      if($('#' + idName + i + '__genpow').length){
+        $('#' + idName + i + '__genpow')[0].setAttribute('text', {
+          value: Math.round(item["GeneratedPower"]) + ' kWt',
+        });
+      }
+
+      //Power
+      if($('#' + idName + i + '__power').length){
+        $('#' + idName + i + '__power')[0].setAttribute('text', {
+          value: Math.round(item["Power"]) + ' kWt',
+        });
+      }
+
+      //ReqPower
+      if($('#' + idName + i + '__reqpower').length){
+        $('#' + idName + i + '__reqpower')[0].setAttribute('text', {
+          value: Math.round(item["RequiredPower"]) + ' kWt',
+        });
+      }
+
     }
 
   });

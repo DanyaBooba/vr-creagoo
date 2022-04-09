@@ -13,141 +13,130 @@ function FormatJS($json)
     $elements = $array->ElementsOK;
 
     $substation = [
-        "GeneratedPower" => Null($root->GeneratedPower),
+        "GeneratedPower" => IfNull(round($root->GeneratedPower), RandomPower()),
         "ID" => "Substation",
         "IsON" => true,
-        "RequiredPower" => Null($root->RequiredPower),
+        "RequiredPower" => IfNull(round($root->RequiredPower), RandomPower()),
     ];
 
     $solarBattery1 = [
-        "GeneratedPower" => Null(round($obj__2[0]->GeneratedPower)),
+        "GeneratedPower" => IfNull(round($obj__2[0]->GeneratedPower), RandomPower()),
         "ID" => "Solar Battery 1",
         "IsON" =>  IfNull($obj__2[0]->IsON, false),
-        "Power" => Null(round($obj__2[0]->Power)),
-        "RequiredPower" =>  Null(round($obj__2[0]->RequiredPower)),
+        "Power" => IfNull(round($obj__2[0]->Power), RandomPower()),
+        "RequiredPower" =>  IfNull(round($obj__2[0]->RequiredPower), RandomPower()),
     ];
 
     $miniSubstation1 = [
-        "GeneratedPower" => Null($obj__1[2]->Childs[0]->GeneratedPower),
+        "GeneratedPower" => IfNull(round($obj__1[2]->Childs[0]->GeneratedPower), RandomPower()),
         "ID" => "Mini Substation 1",
         "IsON" => IfNull($obj__1[2]->Childs[0]->IsON, false),
-        "RequiredPower" => Null($obj__1[2]->Childs[0]->RequiredPower),
+        "Power" => IfNull($obj__1[2]->Childs[0]->Power, RandomPower()),
+        "RequiredPower" => IfNull(round($obj__1[2]->Childs[0]->RequiredPower), RandomPower()),
     ];
 
     $miniSubstation2 = [
-        "GeneratedPower" => Null($obj__1[0]->Childs[0]->GeneratedPower),
+        "GeneratedPower" => IfNull(round($obj__1[0]->Childs[0]->GeneratedPower), RandomPower()),
         "ID" => "Mini Substation 2",
         "IsON" => IfNull($obj__1[0]->Childs[0]->IsON, false),
-        "Power" => Null($obj__2[0]->Power),
-        "RequiredPower" => Null($obj__1[0]->Childs[0]->RequiredPower),
+        "Power" => IfNull(round($obj__2[0]->Power), RandomPower()),
+        "RequiredPower" => IfNull(round($obj__1[0]->Childs[0]->RequiredPower), RandomPower()),
     ];
 
     $hospital2 = [
-        "GeneratedPower" => Null($obj__1[1]->Childs[0]->GeneratedPower),
+        "GeneratedPower" => IfNull(round($obj__1[1]->Childs[0]->GeneratedPower), RandomPower()),
         "ID" => "Hospital 2",
         "IsON" => IfNull($obj__1[1]->Childs[0]->IsON, false),
-        "Power" => Null($obj__2[0]->Power),
-        "RequiredPower" => Null($obj__1[1]->Childs[0]->RequiredPower),
-
+        "Power" => IfNull(round($obj__2[0]->Power), RandomPower()),
+        "RequiredPower" => IfNull(round($obj__1[1]->Childs[0]->RequiredPower), RandomPower()),
     ];
 
     $factory2 = [
-        "GeneratedPower" => Null($obj__1[1]->Childs[2]->GeneratedPower),
+        "GeneratedPower" => IfNull(round($obj__1[1]->Childs[2]->GeneratedPower), RandomPower()),
         "ID" => "Factory 2",
         "IsON" => IfNull($obj__1[1]->Childs[2]->IsON, false),
-        "Power" => Null($obj__2[0]->Power),
-        "RequiredPower" => Null($obj__1[1]->Childs[2]->RequiredPower),
-
+        "Power" => IfNull(round($obj__2[0]->Power), RandomPower()),
+        "RequiredPower" => IfNull(round($obj__1[1]->Childs[2]->RequiredPower), RandomPower()),
     ];
 
     $house1 = [
-        "GeneratedPower" => Null($obj__1[0]->Childs[0]->Childs[1]->Childs[0]->GeneratedPower),
+        "GeneratedPower" => IfNull(round($obj__1[0]->Childs[0]->Childs[1]->Childs[0]->GeneratedPower), RandomPower()),
         "ID" => "Microdistrict 1",
         "IsON" => IfNull($obj__1[0]->Childs[0]->Childs[1]->Childs[0]->IsON, false),
-        "Power" => Null($obj__2[0]->Power),
-        "RequiredPower" => Null($obj__1[0]->Childs[0]->Childs[1]->Childs[0]->RequiredPower),
-
+        "Power" => IfNull(round($obj__2[0]->Power), RandomPower()),
+        "RequiredPower" => IfNull(round($obj__1[0]->Childs[0]->Childs[1]->Childs[0]->RequiredPower), RandomPower()),
     ];
 
     $house2 = [
-        "GeneratedPower" => Null($obj__1[0]->Childs[0]->Childs[1]->Childs[1]->GeneratedPower),
+        "GeneratedPower" => IfNull(round($obj__1[0]->Childs[0]->Childs[1]->Childs[1]->GeneratedPower), RandomPower()),
         "ID" => "Microdistrict 2",
         "IsON" => IfNull($obj__1[0]->Childs[0]->Childs[1]->Childs[1]->IsON, false),
-        "Power" => Null($obj__2[0]->Power),
-        "RequiredPower" => Null($obj__1[0]->Childs[0]->Childs[1]->Childs[1]->RequiredPower),
-
+        "Power" => IfNull(round($obj__2[0]->Power), RandomPower()),
+        "RequiredPower" => IfNull(round($obj__1[0]->Childs[0]->Childs[1]->Childs[1]->RequiredPower), RandomPower()),
     ];
 
     $house3 = [
-        "GeneratedPower" => Null($obj__1[1]->Childs[3]->GeneratedPower),
+        "GeneratedPower" => IfNull(round($obj__1[1]->Childs[3]->GeneratedPower), RandomPower()),
         "ID" => "Microdistrict 3",
         "IsON" => IfNull($obj__1[1]->Childs[3]->IsON, false),
-        "Power" => Null($obj__2[0]->Power),
-        "RequiredPower" => Null($obj__1[1]->Childs[3]->RequiredPower),
-
+        "Power" => IfNull(round($obj__2[0]->Power), RandomPower()),
+        "RequiredPower" => IfNull(round($obj__1[1]->Childs[3]->RequiredPower), RandomPower()),
     ];
 
     $house4 = [
-        "GeneratedPower" => Null($obj__1[1]->Childs[4]->GeneratedPower),
+        "GeneratedPower" => IfNull(round($obj__1[1]->Childs[4]->GeneratedPower), RandomPower()),
         "ID" => "Microdistrict 4",
         "IsON" => IfNull($obj__1[1]->Childs[4]->IsON, false),
-        "Power" => Null($obj__2[0]->Power),
-        "RequiredPower" => Null($obj__1[1]->Childs[4]->RequiredPower),
-
+        "Power" => IfNull(round($obj__2[0]->Power), RandomPower()),
+        "RequiredPower" => IfNull(round($obj__1[1]->Childs[4]->RequiredPower), RandomPower()),
     ];
 
     $house5 = [
-        "GeneratedPower" => Null($obj__1[1]->Childs[5]->GeneratedPower),
+        "GeneratedPower" => IfNull(round($obj__1[1]->Childs[5]->GeneratedPower), RandomPower()),
         "ID" => "Microdistrict 5",
         "IsON" => IfNull($obj__1[1]->Childs[5]->IsON, false),
-        "Power" => Null($obj__2[0]->Power),
-        "RequiredPower" => Null($obj__1[1]->Childs[5]->RequiredPower),
-
+        "Power" => IfNull(round($obj__2[0]->Power), RandomPower()),
+        "RequiredPower" => IfNull(round($obj__1[1]->Childs[5]->RequiredPower), RandomPower()),
     ];
 
     $house6 = [
-        "GeneratedPower" => Null($obj__1[1]->Childs[1]->GeneratedPower),
+        "GeneratedPower" => IfNull(round($obj__1[1]->Childs[1]->GeneratedPower), RandomPower()),
         "ID" => "Microdistrict 6",
         "IsON" => IfNull($obj__1[1]->Childs[1]->IsON, false),
-        "Power" => Null($obj__2[0]->Power),
-        "RequiredPower" => Null($obj__1[1]->Childs[1]->RequiredPower),
-
+        "Power" => IfNull(round($obj__2[0]->Power), RandomPower()),
+        "RequiredPower" => IfNull(round($obj__1[1]->Childs[1]->RequiredPower), RandomPower()),
     ];
 
     $factory1 = [
-        "GeneratedPower" => Null(round($obj__1[1]->Childs[1]->GeneratedPower)),
+        "GeneratedPower" => IfNull(round($obj__1[1]->Childs[1]->GeneratedPower), RandomPower()),
         "ID" => "Factory 1",
         "IsON" => IfNull($obj__1[1]->Childs[1]->IsON, false),
-        "Power" => Null(round($obj__2[0]->Power)),
-        "RequiredPower" => Null(round($obj__1[1]->Childs[1]->RequiredPower)),
-
+        "Power" => IfNull(round($obj__2[0]->Power), RandomPower()),
+        "RequiredPower" => IfNull(round($obj__1[1]->Childs[1]->RequiredPower), RandomPower()),
     ];
 
     $hospital1 = [
-        "GeneratedPower" => Null(round($obj__1[2]->Childs[0]->Childs[1]->Childs[0]->GeneratedPower)),
+        "GeneratedPower" => IfNull(round($obj__1[2]->Childs[0]->Childs[1]->Childs[0]->GeneratedPower), RandomPower()),
         "ID" => "Hospital 1",
         "IsON" => IfNull($obj__1[2]->Childs[0]->Childs[1]->Childs[0]->IsON, false),
-        "Power" => Null(round($obj__2[0]->Power)),
-        "RequiredPower" => Null(round($obj__1[2]->Childs[0]->Childs[1]->Childs[0]->RequiredPower)),
-
+        "Power" => IfNull(round($obj__2[0]->Power), RandomPower()),
+        "RequiredPower" => IfNull(round($obj__1[2]->Childs[0]->Childs[1]->Childs[0]->RequiredPower), RandomPower()),
     ];
 
     $solarBattery2 = [
-        "GeneratedPower" => Null(round($obj__2[4]->GeneratedPower)),
+        "GeneratedPower" => IfNull(round($obj__2[4]->GeneratedPower), RandomPower()),
         "ID" => "Solar Battery 2",
         "IsON" => IfNull($obj__2[4]->IsON, false),
-        "Power" => Null(round($obj__2[0]->Power)),
-        "RequiredPower" => Null(round($obj__2[4]->RequiredPower)),
-
+        "Power" => IfNull(round($obj__2[0]->Power), RandomPower()),
+        "RequiredPower" => IfNull(round($obj__2[4]->RequiredPower), RandomPower()),
     ];
 
     $windGenerator = [
-        "GeneratedPower" => Null(round($obj__2[2]->GeneratedPower)),
+        "GeneratedPower" => IfNull(round($obj__2[2]->GeneratedPower), RandomPower()),
         "ID" => "Wind Generator",
         "IsON" => IfNull($obj__2[2]->IsON, false),
-        "Power" => Null(round($obj__2[0]->Power)),
-        "RequiredPower" => Null(round($obj__2[2]->RequiredPower)),
-
+        "Power" => IfNull(round($obj__2[0]->Power), RandomPower()),
+        "RequiredPower" => IfNull(round($obj__2[2]->RequiredPower), RandomPower()),
     ];
 
     #final array
@@ -186,4 +175,9 @@ function IfNull($d1, $d2)
 {
     if (empty($d1)) return $d2;
     return $d1;
+}
+
+function RandomPower()
+{
+    return random_int(0, 100);
 }

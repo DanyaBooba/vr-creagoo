@@ -111,11 +111,11 @@ $array1 = [
         <a-entity id="Винт Мини Ветрогенератора" position="77.77 4.55 16.47" gltf-model="/models/windMiniTurbinePropeller.glb" animation="property: rotation; to: 0 -360 0; loop: true; dur: 1000; easing: linear;"></a-entity>
 
         <a-plane id="Плейн Подстанция [1]" material="color: #696969; opacity: 0.4;" position="-27.98 0.5 -6.15" rotation="0 90 0" scale="2.5 3 1"></a-plane>
-        <a-entity text="value: Substation; color: #ffffff; align: center;" id="t1__id" scale="7 7 1" position="-27.9 1 -6.15" rotation="0 90 0"></a-entity>
-        <a-entity text="value: Substation; color: #ffffff; align: center;" id="t1__genpow" scale="7 7 1" position="-27.9 0.5 -6.15" rotation="0 90 0"></a-entity>
-        <a-entity text="value: Substation; color: #ffffff; align: center;" id="t1__ison" scale="7 7 1" position="-27.9 0 -6.15" rotation="0 90 0"></a-entity>
+        <a-entity text="value: Substation; color: #ffffff; align: center;" id="t0__id" scale="7 7 1" position="-27.9 1 -6.15" rotation="0 90 0"></a-entity>
+        <a-entity text="value: Substation; color: #ffffff; align: center;" id="t0__genpow" scale="7 7 1" position="-27.9 0.5 -6.15" rotation="0 90 0"></a-entity>
+        <a-entity text="value: Substation; color: #ffffff; align: center;" id="t0__ison" scale="7 7 1" position="-27.9 0 -6.15" rotation="0 90 0"></a-entity>
 
-        <?php $c = 2 ?>
+        <?php $c = 1 ?>
         <?php for ($i = 0; $i < count($array1); $i++) : ?>
 
             <a-plane id="<?php echo $array1[$i]["id"] ?>" material="color: #696969; opacity: 0.4;" position="<?php echo $array1[$i]["x"] . " 0.5 " . $array1[$i]["z"] ?>" rotation="<?php echo "0 " . $array1[$i]["rotation"] . " 0" ?>" scale="2.5 3 1"></a-plane>
