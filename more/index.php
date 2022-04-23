@@ -9,15 +9,35 @@
     <style>
         body {
             margin: 0 auto;
+        }
 
-            margin-left: 120px;
-            margin-top: 120px;
+        @media (min-width: 750px) {
+            .content {
+                margin-left: 120px;
+                margin-top: 120px;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            p {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media(max-width: 749px) {
+            .content {
+                margin-left: 20px;
+                margin-top: 50px;
+            }
+
 
         }
     </style>
 </head>
 
-<body>
+<body class="content">
 
     <h1>
         Смотрите ссылки Метеоэнергетика

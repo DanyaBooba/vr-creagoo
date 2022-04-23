@@ -1,6 +1,6 @@
 <?php
 
-$path = "json_data.txt";
+$path = "index.txt";
 $json = file_get_contents($path);
 $parsejson = json_decode($json, true);
 ?>
@@ -15,6 +15,4 @@ $parsejson = json_decode($json, true);
 <h2>
     List
 </h2>
-<pre>
-    <?php var_dump($parsejson) ?>
-</pre>
+<pre><?php var_dump($parsejson) ?></pre>
