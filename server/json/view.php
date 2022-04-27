@@ -1,5 +1,14 @@
 <?php
 
+##
+## Скрипт сервера.
+## Его задача: выводить json файл в качестве графа.
+##
+## Авторство: Дыбка Даниил Викторович
+## Почта: daniil@creagoo.com
+## Сайт: creagoo.ru
+##
+
 $path = "index.txt";
 $json = file_get_contents($path);
 $parsejson = json_decode($json, true);

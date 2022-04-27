@@ -1,19 +1,30 @@
 <?php
 
-function IfNull($a){
-    if(!isset($a)) return "<i>Null</i>";
+##
+## Скрипт сервера.
+## Его задача: выводить из json файла таблицу.
+##
+## Авторство: Дыбка Даниил Викторович
+## Почта: daniil@creagoo.com
+## Сайт: creagoo.ru
+##
+
+function IfNull($a)
+{
+    if (!isset($a)) return "<i>Null</i>";
     return $a;
 }
 
-function IsON($bool){
-    if($bool) return "ON";
+function IsON($bool)
+{
+    if ($bool) return "ON";
     return "OFF";
 }
 
 $jsonfile = file_get_contents("index.txt");
 $array = json_decode($jsonfile);
 
-foreach($array as $b){
+foreach ($array as $b) {
     var_dump($b);
     echo "<br>";
 }
@@ -98,8 +109,8 @@ foreach($array as $b){
                         <?php echo IfNull($item->Power) ?>
                     </td>
                 </tr>
-                
-                <?php $c+=1; ?>
+
+                <?php $c += 1; ?>
             <?php endforeach; ?>
 
         </table>

@@ -1,4 +1,13 @@
 <?php
+##
+## Скрипт сервера.
+## Его задача: форматировать полученный json.
+##
+## Авторство: Дыбка Даниил Викторович
+## Почта: daniil@creagoo.com
+## Сайт: creagoo.ru
+##
+
 function FormatJS($json)
 {
     #start array
